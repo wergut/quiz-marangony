@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <meta name="robots" content="nofollow,noindex">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+          rel="stylesheet"/>
+    <link type="image/x-icon" href="img/icons/favicon.svg" rel="shortcut icon">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/style.bundle.css"/>
+    <link rel="stylesheet" href="css/quiz.css"/>
+    <title>Chubs - Don’t put your love life on hold</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.3/nouislider.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.3/nouislider.min.js"></script>
+    <script src="js/quiz/questions.js"></script>
+</head>
+<body>
+<main>
+
+    <div id="preloader">
+        <div id="loader"></div>
+    </div>
+
+
+    <section class="quiz">
+        <div class="container">
+            <div class="quiz-title">Quiz Form</div>
+            <form class="question" action="" style="background: #fff;">
+                <div class="quiz-progress">
+                <span class="step-info">
+                    Step
+                    <span class="current-step"> 1 </span>
+                    of
+                    <span class="total-step"> 6 </span>
+                </span>
+                </div>
+                <div class="steps">
+                    <div id="questionnaire-container"></div>
+                </div>
+                <div class="pagination-quiz">
+                    <button id="prevStep" type="button" class="btn-quiz-prev" data-step="1"></button>
+                    <button id="nextStep" type="button" class="btn-quiz-next" data-step="1">Next</button>
+                </div>
+            </form>
+        </div>
+    </section>
+</main>
+
+
+<script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-Knob/1.2.13/jquery.knob.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script src="js/inputMusk.js"></script>
+<script src="js/quiz/states.js"></script>
+<script src="js/quiz/questions.js"></script>
+<script src="js/quiz/vendor.js"></script>
+<script src="js/quiz/validation.js"></script>
+<script src="js/quiz/quiz.js"></script>
+<script src="js/quiz/modal.js"></script>
+</body>
+</html>
