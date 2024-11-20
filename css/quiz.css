@@ -13,6 +13,11 @@
     opacity: 1;
     transition: opacity 0.5s;
 }
+
+* {
+    box-sizing: border-box;
+}
+
 #preloader.hide {
     animation: fadeOut 0.5s forwards;
 }
@@ -63,10 +68,24 @@ span.step-info {
     margin-top: 18px;
 }
 
+main {
+    max-width: 100%;
+    overflow: hidden;
+}
+
 fieldset {
     border: none;
     padding: 0;
     margin: 0;
+}
+
+.steps legend {
+    font-family: Helvetica Neue LT Std;
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 34px;
+    color: #231F20;
+    margin-bottom: 25px;
 }
 
 .quiz-title {
@@ -184,12 +203,138 @@ fieldset {
     cursor: pointer;
 }
 
+.quiz-answers-type-form .answer-btn {
+    display: flex;
+}
 
+.quiz-answers-type-form  .form-inputs {
+    width: 75%;
+    display: flex;
+}
 
+.quiz-answers-type-form {
+    margin: 0 -20px;
+    max-width: 100%;
+}
 
+.quiz-answers-type-form .form-column {
+    padding: 0 20px;
+    width: 33.33%;
+}
 
+.form-contact {
+    width: 25%;
+}
 
+.quiz-answers-type-form textarea:focus, .quiz-answers-type-form input:focus {
+    outline: none;
+    box-shadow: none;
+}
 
+.quiz-answers-type-form textarea {
+    height: 116px;
+    resize: none;
+    padding: 18px 20px;
+    font-family: "Helvetica Neue LT Std";
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 19px;
+    color: #231F20;
+    border: 1px solid #231F20;
+    width: 100%;
+}
 
+.quiz-answers-type-form textarea::placeholder {
+    font-family: "Helvetica Neue LT Std";
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 19px;
+    color: #231F20;
+}
+
+.quiz-answers-type-form input {
+    height: 48px;
+    padding: 0 20px;
+    border: 1px solid #231F20;
+    width: 100%;
+    font-family: "Helvetica Neue LT Std";
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 19px;
+    color: #231F20;
+    max-width: 100%;
+    margin-bottom: 20px;
+}
+
+.quiz-answers-type-form input::placeholder {
+    font-family: "Helvetica Neue LT Std";
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 19px;
+    color: #231F20;
+}
+
+.quiz-answers-type-form .form-contact-title {
+    font-family: "Helvetica Neue LT Std";
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 19px;
+    margin-bottom: 15px;
+    color: #231F20;
+}
+
+.quiz-answers-type-form .form-contact {
+    max-width: 100%;
+}
+
+.quiz-answers-type-form .form-contact .answer-btn {
+    display: inline-flex;
+    width: 49%;
+}
+
+.quiz-answers-type-form .form-contact .answer-btn input {
+    z-index: -1;
+    opacity: 0;
+    position: absolute;
+}
+
+.quiz-answers-type-form .form-contact .answer-btn input+label::before {
+    content: '';
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border: 1px solid #231F20;
+    border-radius: 50%;
+    margin-right: 10px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    transition: 0.3s;
+    background-color: #fff;
+}
+
+.quiz-answers-type-form .form-contact .answer-btn input:checked+label::before {
+    background-image: url(../img/icons/radio-disk.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 10px;
+}
+
+.quiz-answers-type-form input[type="submit"] {
+    margin-top: 18px;
+    width: 100%;
+    max-width: 100%;
+    height: 48px;
+    padding: 0 20px;
+    border-radius: 60px;
+    border: none;
+    background-color: #C80D3A;
+    font-family: "Helvetica Neue LT Std";
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 16px;
+    color: #fff;
+    margin-bottom: 0;
+    text-transform: uppercase;
+}
 
 

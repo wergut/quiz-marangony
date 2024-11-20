@@ -20,7 +20,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.3/nouislider.min.js"></script>
     <script src="js/quiz/questions.js"></script>
 </head>
-<body>
+<body style="max-width: 100%;overflow: hidden">
 <main>
 
     <div id="preloader">
@@ -41,7 +41,43 @@
                 </span>
                 </div>
                 <div class="steps">
-                    <div id="questionnaire-container"></div>
+                    <div id="questionnaire-container">
+                        <div class="step step-index-4 step-step-5" style="display: none;">
+                            <fieldset class="inner">
+                                <legend>Fill The form</legend>
+                                <p></p>
+                                <div class="quiz-answers quiz-answers-type-form">
+                                    <div class="quiz-answer-label answer-btn">
+                                        <div class="form-inputs">
+                                            <div class="form-column">
+                                                <input type="text" name="question_5" placeholder="First Name">
+                                                <input type="text" name="question_5" placeholder="Last Name">
+                                            </div>
+                                            <div class="form-column">
+                                                <input type="text" name="question_5" placeholder="E-mail">
+                                                <input class="phone" type="text" name="question_5" placeholder="Phone number">
+                                            </div>
+                                            <div class="form-column">
+                                                <textarea name="question_5" cols="30" rows="10" placeholder="Additional Comments"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-contact">
+                                            <div class="form-contact-title">Preferred Contact Method</div>
+                                            <div class="answer-btn">
+                                                <input checked type="radio" name="question_5" value="E-mail">
+                                                <label>E-mail</label>
+                                            </div>
+                                            <div class="answer-btn">
+                                                <input type="radio" name="question_5" value="Phone">
+                                                <label>Phone</label>
+                                            </div>
+                                            <input type="submit" placeholder="Submit">
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
                 </div>
                 <div class="pagination-quiz">
                     <button id="prevStep" type="button" class="btn-quiz-prev" data-step="1"></button>
