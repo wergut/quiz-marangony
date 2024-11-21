@@ -79,13 +79,18 @@ fieldset {
     margin: 0;
 }
 
+.quiz {
+    max-width: 840px;
+    padding: 70px;
+    background-color: #fff;
+}
+
 .steps legend {
-    font-family: Helvetica Neue LT Std;
+    font-family: "Helvetica Neue LT Std";
     font-size: 28px;
     font-weight: 500;
     line-height: 34px;
-    color: #231F20;
-    margin-bottom: 10px;
+    max-width: 325px;
 }
 
 .quiz-title {
@@ -95,6 +100,10 @@ fieldset {
     font-weight: 300;
     line-height: 60px;
     color: #231F20;
+}
+
+.quiz-answers-type-radio {
+    max-width: calc(100% - 259px);
 }
 
 .quiz-answers-type-radio .answer-btn {
@@ -119,29 +128,26 @@ fieldset {
     cursor: pointer;
 }
 
-.quiz-answers-type-radio .answer-btn label {
-    font-family: "Helvetica Neue LT Std";
-    font-size: 16px;
-    font-weight: 300;
-    line-height: 19px;
-    color: #231F20;
+.quiz-answers-type-radio input {
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
 }
 
-.quiz-answers-type-radio .answer-btn input+label::before {
-    content: '';
-    display: inline-block;
-    width: 12px;
-    height: 12px;
-    border: 1px solid #231F20;
-    border-radius: 3px;
-    margin-right: 10px;
-    background-repeat: no-repeat;
-    background-position: center center;
+.quiz-answers-type-radio .answer-btn {
+    border: 1px solid #636363;
+    height: 48px;
+    padding: 0 15px;
     transition: 0.3s;
+    cursor: pointer;
 }
 
-.quiz-answers-type-radio .answer-btn input:checked+label::before {
-    background-image: url(../img/icons/checkbox-checked.svg);
+.quiz-answers-type-radio .answer-btn.active {
+    background-color: #231F20;
+}
+
+.quiz-answers-type-radio .answer-btn.active label {
+    color: #fff;
 }
 
 .pagination-quiz {
@@ -336,5 +342,62 @@ fieldset {
     margin-bottom: 0;
     text-transform: uppercase;
 }
+
+.pagination-wrapper {
+    display: flex;
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.pagination-wrapper .pagination-step {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    width: 15%;
+}
+
+.pagination-wrapper .pagination-step:after {
+    content: "";
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: #D9D9D9;
+    margin-top: 10px;
+}
+
+.pagination-wrapper .pagination-step .step-name {
+    width: 100%;
+    font-family: "Inter";
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 15px;
+    color: #000000;
+}
+
+.pagination-wrapper .pagination-step .step-num {
+    font-family: "Inter";
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 15px;
+    color: #fff;
+    border-radius: 50%;
+    background-color: #D9D9D9;
+    width: 27px;
+    height: 27px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pagination-wrapper .step-checked .step-num {
+    background-color: #C80D3A;
+}
+
+.pagination-wrapper .step-checked:after {
+    background-color: #C80D3A;
+}
+
+
 
 
