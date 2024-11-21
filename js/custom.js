@@ -72,7 +72,7 @@ $(document).ready(function(){
         event.preventDefault();
         var button = $(this).find('button');
         $.ajax({
-            url: 'https://chubsrx.com/mail.php',
+           // url: 'https://chubsrx.com/mail.php',
             type: 'post',
             data: $(this).serializeArray(),
             dataType: 'json',

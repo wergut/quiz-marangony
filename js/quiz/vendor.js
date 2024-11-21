@@ -35,7 +35,7 @@ newQuestionnaireData.questions.forEach(function(question, index) {
 
     if (question.type === 'radio') {
 
-        question.answers.forEach(function(answer, i) {
+        question.answers.forEach(function (answer, i) {
             var radio = document.createElement('input');
             radio.type = 'radio';
             radio.name = 'question_' + index;
@@ -54,6 +54,77 @@ newQuestionnaireData.questions.forEach(function(question, index) {
         });
 
         answerLabel.appendChild(answersDiv);
+
+    } else if (question.type === 'form') {
+        var formInputsDiv = document.createElement('div');
+        formInputsDiv.classList.add('form-inputs');
+
+        var formColumn1 = document.createElement('div');
+        formColumn1.classList.add('form-column');
+        formColumn1.innerHTML = `
+        <input type="text" name="question_${index}" placeholder="First Name">
+        <input type="text" name="question_${index}" placeholder="Last Name">
+    `;
+
+        var formColumn2 = document.createElement('div');
+        formColumn2.classList.add('form-column');
+        formColumn2.innerHTML = `
+        <input type="text" name="question_${index}" placeholder="E-mail">
+        <input class="phone" type="text" name="question_${index}" placeholder="Phone number">
+    `;
+
+        var formColumn3 = document.createElement('div');
+        formColumn3.classList.add('form-column');
+        var textarea = document.createElement('textarea');
+        textarea.name = `question_${index}`;
+        textarea.cols = 30;
+        textarea.rows = 10;
+        textarea.placeholder = 'Additional Comments';
+        formColumn3.appendChild(textarea);
+
+        formInputsDiv.appendChild(formColumn1);
+        formInputsDiv.appendChild(formColumn2);
+        formInputsDiv.appendChild(formColumn3);
+
+        var formContactDiv = document.createElement('div');
+        formContactDiv.classList.add('form-contact');
+
+        var contactTitle = document.createElement('div');
+        contactTitle.classList.add('form-contact-title');
+        contactTitle.textContent = 'Preferred Contact Method';
+        formContactDiv.appendChild(contactTitle);
+
+        ['E-mail', 'Phone'].forEach((method, i) => {
+            var answerBtn = document.createElement('div');
+            answerBtn.classList.add('answer-btn');
+
+            var input = document.createElement('input');
+            input.type = 'radio';
+            input.name = `question_${index}`;
+            input.value = method;
+            if (i === 0) input.checked = true;
+
+            var label = document.createElement('label');
+            label.textContent = method;
+
+            answerBtn.appendChild(input);
+            answerBtn.appendChild(label);
+            formContactDiv.appendChild(answerBtn);
+        });
+
+        var submitInput = document.createElement('input');
+        submitInput.type = 'submit';
+        submitInput.placeholder = 'Submit';
+        formContactDiv.appendChild(submitInput);
+
+        var answerLabel = document.createElement('div');
+        answerLabel.classList.add('quiz-answer-label');
+        answerLabel.classList.add('answer-btn');
+        answerLabel.appendChild(formInputsDiv);
+        answerLabel.appendChild(formContactDiv);
+
+        answersDiv.appendChild(answerLabel);
+
 
     } else if (question.type === 'checkbox') {
 
@@ -103,7 +174,6 @@ newQuestionnaireData.questions.forEach(function(question, index) {
         answersDiv.appendChild(answerLabel);
 
     } else if (question.type === 'slider') {
-
 
         var labelList = document.createElement('ul');
         labelList.classList.add('label-for-range');

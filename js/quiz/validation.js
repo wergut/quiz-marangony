@@ -1,5 +1,10 @@
 function validateCurrentStep(currentStep) {
-    if (checkFieldsFilled(currentStep) && checkFieldsValid(currentStep) && checkAttentionRequired(currentStep)) {
+    if (
+        checkFieldsFilled(currentStep) &&
+        checkFieldsValid(currentStep) &&
+        checkAttentionRequired(currentStep) &&
+        validateRadioButtons(currentStep)
+    ) {
         return true;
     } else {
         console.log('Validation failed');
@@ -7,33 +12,33 @@ function validateCurrentStep(currentStep) {
     }
 }
 
+
 function checkFieldsFilled(currentStep) {
     var inputs = currentStep.querySelectorAll('input, textarea, select');
-    var check = false;
+    var allFilled = true;
 
     for (var i = 0; i < inputs.length; i++) {
         var input = inputs[i];
         if (input.type === 'radio' || input.type === 'checkbox') {
-            if (input.checked) {
-                check = true;
-            } else {}
-        } else if ( input.classList.contains('phone') ) {
-            var unmaskedValue = input.value;
-            if (unmaskedValue.length > 0) {
-                check = true;
+            var radios = currentStep.querySelectorAll(`input[name="${input.name}"]`);
+            var isChecked = Array.from(radios).some(radio => radio.checked);
+            if (!isChecked) {
+                allFilled = false;
+                input.classList.add('error');
+            } else {
+                input.classList.remove('error');
             }
-        } else if ( input.classList.contains('email') ) {
-            var unmaskedValue = input.value;
-            if (unmaskedValue.length > 0) {
-                check = true;
-            }
-        } else if (input.value) {
-            check = true;
+        } else if (!input.value.trim()) {
+            allFilled = false;
+            input.classList.add('error');
+        } else {
+            input.classList.remove('error');
         }
     }
 
-    return check;
+    return allFilled;
 }
+
 
 function checkFieldsValid(currentStep) {
     var inputs = currentStep.querySelectorAll('input, textarea, select');
@@ -43,48 +48,21 @@ function checkFieldsValid(currentStep) {
         var input = inputs[i];
 
         if (input.type === 'radio' || input.type === 'checkbox') {
-            continue;
+            continue; // Для этих полей проверка уже выполнена в `checkFieldsFilled`
         }
 
         if (input.classList.contains('phone') && !validatePhone(input.inputmask.unmaskedvalue())) {
             isValid = false;
             console.log('Invalid phone: ' + input.value);
-            input.classList.remove('success');
             input.classList.add('error');
         } else if (input.classList.contains('email') && !validateEmail(input.value)) {
             isValid = false;
             console.log('Invalid email: ' + input.value);
-            input.classList.remove('success');
             input.classList.add('error');
-        } else if (input.classList.contains('date') && !validateDate(input.value)) {
+        } else if (input.type === 'text' && input.value.length < 2) {
             isValid = false;
-            console.log('Invalid date: ' + input.value);
-            input.classList.remove('success');
+            console.log('Invalid text field: ' + input.value);
             input.classList.add('error');
-
-        } else if (input.type === 'number') {
-
-
-            var minValue = input.getAttribute('min');
-            var maxValue = input.getAttribute('max');
-            var inputValue = input.value;
-
-            if (minValue !== null && parseFloat(inputValue) < parseFloat(minValue)) {
-                isValid = false;
-                console.log('Value is less than min: ' + inputValue);
-                input.classList.remove('success');
-                input.classList.add('error');
-            } else if (maxValue !== null && parseFloat(inputValue) > parseFloat(maxValue)) {
-                isValid = false;
-                console.log('Value is greater than max: ' + inputValue);
-                input.classList.remove('success');
-                input.classList.add('error');
-            } else {
-                input.classList.remove('error');
-                input.classList.add('success');
-            }
-
-
         } else {
             input.classList.remove('error');
             input.classList.add('success');
@@ -93,6 +71,24 @@ function checkFieldsValid(currentStep) {
 
     return isValid;
 }
+
+function validateRadioButtons(currentStep) {
+    var radioGroups = {};
+    var radios = currentStep.querySelectorAll('input[type="radio"]');
+    radios.forEach(radio => {
+        if (!radioGroups[radio.name]) {
+            radioGroups[radio.name] = [];
+        }
+        radioGroups[radio.name].push(radio);
+    });
+
+    return Object.keys(radioGroups).every(group => {
+        return radioGroups[group].some(radio => radio.checked);
+    });
+}
+
+
+
 
 function hidePreloader() {
     var preloader = document.getElementById('preloader');

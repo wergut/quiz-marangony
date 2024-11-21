@@ -283,9 +283,9 @@ function updateStepInfo() {
     var subquestionEl = document.getElementById('subquestion');
 
     if (currentQuestion && currentQuestion.is_subquestion === true) {
-        subquestionEl.innerText = 'Question ' + currentQuestion.subquestion;
+        //subquestionEl.innerText = 'Question ' + currentQuestion.subquestion;
     } else {
-        subquestionEl.innerText = '';
+        //subquestionEl.innerText = '';
     }
     currentStepElement.textContent = currentQuestion.step;
 }

@@ -75,6 +75,29 @@ var questionnaireData = {
             "attention_required": [],
             "hint": ""
         },
+        {
+            "index": 5,
+            "title": "Contact information",
+            "type": "form",
+            "subquestion": "a",
+            "answers": [
+            ],
+            "next_questions": [ 6 ],
+            "attention_required": [],
+            "hint": ""
+        },
+        {
+            "index": 6,
+            "title": "Congratulations!\n" +
+                "Based on your answers, we’ve found the perfect program for you at Istituto Marangoni Miami.",
+            "type": "final",
+            "subquestion": "a",
+            "answers": [
+            ],
+            "next_questions": [ 7 ],
+            "attention_required": [],
+            "hint": ""
+        },
 
     ]
 }
