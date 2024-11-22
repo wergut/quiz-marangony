@@ -51,7 +51,25 @@ newQuestionnaireData.questions.forEach(function(question, index) {
             answerContainer.appendChild(radio);
             answerContainer.appendChild(label);
             answersDiv.appendChild(answerContainer);
+
+
+            if (question.tooltip && Array.isArray(question.tooltip)) {
+                var tooltipObject = question.tooltip[i];
+                if (tooltipObject) {
+                    var tooltipText = Object.values(tooltipObject)[0];
+                    tooltipText = createTooltipText(tooltipText, index);
+                    var tooltip = createTooltipElement(index);
+                    if (answerContainer && tooltipText !== undefined) {
+                        answerContainer.appendChild(tooltip);
+                        tooltip.appendChild(tooltipText);
+                    }
+                }
+            }
+
+
         });
+
+
 
         answerLabel.appendChild(answersDiv);
 

@@ -11,7 +11,10 @@ var questionnaireData = {
                 { "2": "Associate degree" },
                 { "3": "Bachelor's degree or higher" }
             ],
-            "tooltip": [],
+            "tooltip": [
+                { "0": "Starting early is the best way to build a strong foundation! We have programs designed to get you industry-ready in no time" },
+                { "1": "Starting early is the best way to build a strong foundation! We have programs designed to get you industry-ready in no time 2" }
+            ],
             "next_questions": [ 1 ],
             "attention_required": [],
             "hint": ""
