@@ -233,7 +233,36 @@ function saveQuestionData(questionIndex) {
                 dontRemember: true
             });
         }
+    } else if (question.type === 'form') {
+        var formInputs = document.querySelectorAll('.step.step-index-' + questionIndex + ' .form-inputs input, .step.step-index-' + questionIndex + ' .form-inputs textarea');
+
+        formInputs.forEach(function(input) {
+            var inputName = input.name;
+            var inputValue = input.value.trim();
+
+            if (inputValue) {
+                answers.push({
+                    name: inputName,
+                    value: inputValue
+                });
+
+                localStorage.setItem(inputName, inputValue);
+            }
+        });
+
+        var contactRadio = document.querySelectorAll('.step.step-index-' + questionIndex + ' .form-contact input[type="radio"]:checked');
+        contactRadio.forEach(function(radio) {
+            var radioValue = radio.value;
+            answers.push({
+                contactMethod: radioValue
+            });
+
+            localStorage.setItem("preferredContact", radioValue);
+        });
     }
+
+
+
 
     var existingDataIndex = savedData.findIndex(function(data) {
         return data.questionIndex === questionIndex;

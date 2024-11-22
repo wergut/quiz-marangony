@@ -52,7 +52,6 @@ newQuestionnaireData.questions.forEach(function(question, index) {
             answerContainer.appendChild(label);
             answersDiv.appendChild(answerContainer);
 
-
             if (question.tooltip && Array.isArray(question.tooltip)) {
                 var tooltipObject = question.tooltip[i];
                 if (tooltipObject) {
@@ -66,10 +65,7 @@ newQuestionnaireData.questions.forEach(function(question, index) {
                 }
             }
 
-
         });
-
-
 
         answerLabel.appendChild(answersDiv);
 
