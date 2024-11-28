@@ -6,17 +6,28 @@ var questionnaireData = {
             "type": "radio",
             "subquestion": "a",
             "answers": [
-                { "0": "High school or equivalent" },
-                { "1": "Some college" },
-                { "2": "Associate degree" },
-                { "3": "Bachelor's degree or higher" }
+                { "0": "Currently in high school" },
+                { "1": "High school or equivalent" },
+                { "2": "Some college" },
+                { "3": "Associate degree" },
+                { "4": "Bachelor's degree or higher" }
             ],
             "tooltip": [
-                { "0": "Starting early is the best way to build a strong foundation! We have programs designed to get you industry-ready in no time" },
-                { "1": "Starting early is the best way to build a strong foundation! We have programs designed to get you industry-ready in no time 2" }
+                { "0": "It’s never too early to start exploring your passion! We have programs tailored to help young talents like you get started on the right path." },
+                { "1": "Starting early is the best way to build a strong foundation! We have programs designed to get you industry-ready in no time." },
+                { "2": "You’re on the right track! We can help you take the next step and turn your passion into a professional career." },
+                { "3": "Great work! Now it’s time to specialize and gain the skills needed to excel in the fashion and design industry." },
+                { "4": "You’re already ahead! Our advanced programs can help you further refine your skills and gain the industry connections needed for success." },
             ],
             "next_questions": [ 1 ],
             "attention_required": [],
+            "image" : [
+                {
+                    "src" = "",
+                    "alt" = "",
+
+                }
+            ],
             "hint": ""
         },
         {
@@ -29,6 +40,12 @@ var questionnaireData = {
                 { "1": "Fashion Styling" },
                 { "2": "Fashion Business" },
                 { "3": "Interior Design" }
+            ],
+            "tooltip": [
+                { "0": "Great choice! Did you know that some of the most iconic fashion houses started with designers who honed their skills just like you are about to?" },
+                { "1": "Excellent! Fashion styling is becoming a multi-billion-dollar industry, and the demand for creative stylists is only growing. You’re on the right path!" },
+                { "2": "Smart move! The global fashion business market is expected to grow exponentially—this is your chance to shape the future of fashion management." },
+                { "3": "Fantastic choice! Miami’s interior design scene is booming, offering endless opportunities for creative minds like yours to shine." },
             ],
             "next_questions": [ 2 ],
             "attention_required": [],
@@ -45,6 +62,12 @@ var questionnaireData = {
                 { "2": "To manage and grow a successful fashion business or retail brand" },
                 { "3": "To design and create innovative interior spaces for residential or commercial clients" }
             ],
+            "tooltip": [
+                { "0": "Ambitious and inspiring! Many successful designers started just like you, turning their ideas into globally recognized brands." },
+                { "1": "Amazing! Did you know that top fashion stylists often start with editorial shoots and celebrity styling, and their careers take off from there?" },
+                { "2": "Perfect fit! With the right skills, you could be managing the next big fashion label or retail empire." },
+                { "3": "Love that goal! Interior design is a field where creativity meets impact—your designs could transform spaces and lives." },
+            ],
             "next_questions": [ 3 ],
             "attention_required": [],
             "hint": ""
@@ -58,6 +81,11 @@ var questionnaireData = {
                 { "0": "One year or less" },
                 { "1": "Two years" },
                 { "2": "Four years" }
+            ],
+            "tooltip": [
+                { "0": "Fast and focused—just like the industry! Our short-term programs are designed to get you career-ready in no time." },
+                { "1": "A solid commitment! You’ll gain practical experience and deep knowledge that will set you up for long-term success." },
+                { "2": "Perfect choice for building a comprehensive foundation in fashion and design—this will prepare you for any path you choose!" }
             ],
             "next_questions": [ 4 ],
             "attention_required": [],
@@ -73,6 +101,12 @@ var questionnaireData = {
                 { "1": "Hands-on vocational training" },
                 { "2": "Comprehensive degree programs" },
                 { "3": "Advanced specialized studies" }
+            ],
+            "tooltip": [
+                { "0": "Exciting choice! Short-term programs offer you the chance to dive deep into the world of fashion and design, all while building valuable skills quickly." },
+                { "1": "Hands-on experience is key! This option will give you real-world practice, so you can develop your skills while learning directly from industry professionals." },
+                { "2": "Great decision! A comprehensive degree will give you the academic and practical foundation needed to excel in any career path you choose." },
+                { "3": "Fantastic! Specializing in your field allows you to master your craft and stand out as an expert in the industry." },
             ],
             "next_questions": [ 5 ],
             "attention_required": [],

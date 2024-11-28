@@ -589,3 +589,40 @@ function updateNextButtonState() {
     }
 
 }
+
+
+
+
+const programsByResponses = {
+    "00000": [
+        "My Atelier Experience",
+        "My Portfolio Experience | Fashion Design and Illustration",
+        "Associate of Applied Science in Fashion Design",
+        "Bachelor of Fine Arts in Fashion Design",
+        "One-Year Vocational Program in Fashion Design",
+    ],
+    "00001": [
+        "My Atelier Experience",
+        "My Portfolio Experience | Fashion Design and Illustration",
+        "Associate of Applied Science in Fashion Design",
+        "Bachelor of Fine Arts in Fashion Design",
+        "One-Year Vocational Program in Fashion Design",
+    ],
+    "00011": [
+        "My Atelier Experience",
+        "My Portfolio Experience | Fashion Design and Illustration",
+        "Associate of Applied Science in Fashion Design",
+        "Bachelor of Fine Arts in Fashion Design",
+        "One-Year Vocational Program in Fashion Design",
+    ],
+};
+
+function getProgramsByResponses(responses) {
+    const key = responses.join("");
+    return programsByResponses[key] || ["No matching programs found"];
+}
+
+const userResponses = [0, 0, 0, 0, 0];
+const recommendedPrograms = getProgramsByResponses(userResponses);
+
+console.log("Recommended Programs:", recommendedPrograms);
