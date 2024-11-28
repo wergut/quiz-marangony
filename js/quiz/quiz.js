@@ -602,14 +602,14 @@ const programsByResponses = {
         "One-Year Vocational Program in Fashion Design",
     ],
     "00001": [
-        "My Atelier Experience",
+        "My Atelier Experience 2",
         "My Portfolio Experience | Fashion Design and Illustration",
         "Associate of Applied Science in Fashion Design",
         "Bachelor of Fine Arts in Fashion Design",
         "One-Year Vocational Program in Fashion Design",
     ],
     "00011": [
-        "My Atelier Experience",
+        "My Atelier Experience 3",
         "My Portfolio Experience | Fashion Design and Illustration",
         "Associate of Applied Science in Fashion Design",
         "Bachelor of Fine Arts in Fashion Design",
@@ -622,7 +622,11 @@ function getProgramsByResponses(responses) {
     return programsByResponses[key] || ["No matching programs found"];
 }
 
-const userResponses = [0, 0, 0, 0, 0];
+const userResponses = [0, 0, 0, 1, 1];
 const recommendedPrograms = getProgramsByResponses(userResponses);
 
 console.log("Recommended Programs:", recommendedPrograms);
+
+
+
+

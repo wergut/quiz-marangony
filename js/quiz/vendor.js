@@ -32,7 +32,6 @@ newQuestionnaireData.questions.forEach(function(question, index) {
     answerLabel.classList.add('quiz-answer-label');
     answerLabel.classList.add('answer-btn');
 
-
     if (question.type === 'radio') {
 
         question.answers.forEach(function (answer, i) {
