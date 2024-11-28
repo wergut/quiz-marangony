@@ -110,7 +110,7 @@ newQuestionnaireData.questions.forEach(function(question, index) {
 
         ['E-mail', 'Phone'].forEach((method, i) => {
             var answerBtn = document.createElement('div');
-            answerBtn.classList.add('answer-btn');
+            answerBtn.classList.add('radio-btn');
 
             var input = document.createElement('input');
             input.type = 'radio';
@@ -125,11 +125,6 @@ newQuestionnaireData.questions.forEach(function(question, index) {
             answerBtn.appendChild(label);
             formContactDiv.appendChild(answerBtn);
         });
-
-        var submitInput = document.createElement('input');
-        submitInput.type = 'submit';
-        submitInput.placeholder = 'Submit';
-        formContactDiv.appendChild(submitInput);
 
         var answerLabel = document.createElement('div');
         answerLabel.classList.add('quiz-answer-label');
