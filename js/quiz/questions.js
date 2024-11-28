@@ -21,13 +21,10 @@ var questionnaireData = {
             ],
             "next_questions": [ 1 ],
             "attention_required": [],
-            "image" : [
-                {
-                    "src" = "",
-                    "alt" = "",
-
-                }
-            ],
+            "image": {
+                "src": "./img/step-1.png",
+                "alt": "What is your current level of education?"
+            },
             "hint": ""
         },
         {

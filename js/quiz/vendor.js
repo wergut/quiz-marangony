@@ -139,7 +139,6 @@ newQuestionnaireData.questions.forEach(function(question, index) {
 
         answersDiv.appendChild(answerLabel);
 
-
     } else if (question.type === 'checkbox') {
 
         question.answers.forEach(function(answer, i) {
@@ -399,6 +398,16 @@ newQuestionnaireData.questions.forEach(function(question, index) {
     fieldset.appendChild(legend);
     fieldset.appendChild(p);
     fieldset.appendChild(answersDiv);
+
+    if (question.image && question.image.src) {
+        var imageElement = document.createElement('img');
+        imageElement.src = question.image.src;
+        imageElement.alt = question.image.alt || 'Question Image';
+        imageElement.classList.add('question-image');
+        fieldset.appendChild(imageElement);
+    }
+
+
     questionHtml.appendChild(fieldset);
     questionnaireContainer.appendChild(questionHtml);
 
