@@ -292,9 +292,6 @@ function saveQuestionData(questionIndex) {
         });
     }
 
-
-
-
     var existingDataIndex = savedData.findIndex(function(data) {
         return data.questionIndex === questionIndex;
     });
