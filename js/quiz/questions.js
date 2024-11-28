@@ -19,7 +19,7 @@ var questionnaireData = {
                 { "3": "Great work! Now it’s time to specialize and gain the skills needed to excel in the fashion and design industry." },
                 { "4": "You’re already ahead! Our advanced programs can help you further refine your skills and gain the industry connections needed for success." },
             ],
-            "next_questions": [ 5 ],
+            "next_questions": [ 1 ],
             "attention_required": [],
             "image": {
                 "src": "./img/step-1.png",
