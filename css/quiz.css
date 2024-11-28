@@ -105,6 +105,7 @@ fieldset {
     position: absolute;
     right: 0;
     top: 0;
+    height: 526px;
 }
 
 .quiz-answer-label {
@@ -127,9 +128,9 @@ fieldset {
 
 .tooltip .tooltip-text {
     position: absolute;
-    right: calc(-100% - 10px);
+    left: calc(100% + 10px);
     top: 0;
-    max-width: 440px;
+    max-width: 250px;
     width: 100%;
     z-index: 1;
     background-color: #C80D3A;
@@ -444,6 +445,7 @@ fieldset {
     font-weight: 400;
     line-height: 15px;
     color: #000000;
+    margin-top: 5px;
 }
 
 .pagination-wrapper .pagination-step .step-num {
@@ -469,6 +471,57 @@ fieldset {
     background-color: #C80D3A;
 }
 
+.pagination-wrapper .pagination-step .step-name-mobile {
+    display: none;
+}
 
 
 
+
+
+
+
+@media (max-width: 600px) {
+    .quiz {
+        padding: 25px;
+    }
+    .step img {
+        display: none;
+    }
+    .quiz-answers-type-radio {
+        max-width: 100%;
+    }
+    .pagination-wrapper .pagination-step .step-name {
+        display: none;
+    }
+    .pagination-wrapper .pagination-step {
+        transition: 0.3s;
+    }
+    .pagination-wrapper .pagination-step .step-name-mobile {
+        width: 0;
+        overflow: hidden;
+        transition: 0.3s;
+        font-size: 11px;
+        line-height: 13px;
+        display: block;
+    }
+    .pagination-wrapper .step-current {
+        width: initial;
+    }
+    .pagination-wrapper .step-current .step-num {
+        width: 96px;
+        border-radius: 30px;
+    }
+    .pagination-wrapper .step-current .step-num .num {
+        font-size: 0;
+    }
+    .pagination-wrapper .step-current .step-name-mobile{
+        width: initial;
+        overflow: initial;
+    }
+    .tooltip .tooltip-text {
+        top: 49px;
+        left: 0;
+        max-width: 100%;
+    }
+}
