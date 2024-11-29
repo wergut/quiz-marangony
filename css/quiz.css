@@ -133,7 +133,7 @@ fieldset {
 .tooltip .tooltip-text {
     position: absolute;
     left: 0;
-    bottom: -25%;
+    bottom: -73px;
     width: 100%;
     z-index: 1;
     font-family: "Helvetica Neue LT Std";
@@ -143,6 +143,10 @@ fieldset {
     transition: 0.3s;
     vertical-align: top;
     height: 49px;
+}
+
+.quiz-answers-4 .tooltip .tooltip-text {
+
 }
 
 .quiz-title {
@@ -204,7 +208,7 @@ fieldset {
 }
 
 .pagination-quiz {
-    margin-top: 115px;
+    margin-top: 100px;
     display: flex;
 }
 
