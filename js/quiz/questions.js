@@ -46,6 +46,10 @@ var questionnaireData = {
             ],
             "next_questions": [ 2 ],
             "attention_required": [],
+            "image": {
+                "src": "./img/step-1.png",
+                "alt": "What is your current level of education?"
+            },
             "hint": ""
         },
         {
