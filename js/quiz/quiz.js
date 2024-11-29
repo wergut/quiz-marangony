@@ -77,6 +77,10 @@ function nextStepHandler() {
             displayProgramsList();
         }
 
+        if (currentStep == 6) {
+            document.getElementById('prevStep').style.display = 'none';
+            document.getElementById('nextStep').style.display = 'none';
+        }
 
         if (!validateCurrentStep(steps[currentStep])) {
             return
@@ -818,7 +822,7 @@ function displayProgramsList() {
     const programsListContainer = document.getElementById('programs-list-container');
     programsListContainer.innerHTML = '';
     const programsList = getAnswersForPrograms();
-    console.log('programsList', programsList);
+
     if (programsList.length > 0) {
         const ul = document.createElement('ul');
         programsList.forEach(program => {
