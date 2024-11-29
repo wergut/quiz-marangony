@@ -7,7 +7,7 @@ function validateCurrentStep(currentStep) {
     ) {
         return true;
     } else {
-        console.log('Validation failed');
+        //console.log('Validation failed');
         return false;
     }
 }

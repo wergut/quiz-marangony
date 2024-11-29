@@ -54,6 +54,7 @@ function prevStepHandler() {
         }
         if (steps[currentStep]) {
             showStep(currentStep);
+            updatePagination(currentStep);
             updateStepInfo();
             toggleButtonVisibility(currentStep);
             branchesIndex--;
@@ -72,9 +73,11 @@ function nextStepHandler() {
 
     if (currentStep < steps.length - 1) {
 
-        if (currentStep == 52 ){
-            location.href= 'treatment-regimen.html';
+        if (currentStep == 5 ){
+            displayProgramsList();
         }
+
+
         if (!validateCurrentStep(steps[currentStep])) {
             return
         }
@@ -135,6 +138,7 @@ function nextStepHandler() {
             var selectedAnswer = getSelectedAnswer(steps[currentStep]);
             getNextStep(selectedAnswer);
             showStep(currentStep);
+            updatePagination(currentStep);
             updateStepInfo();
             toggleButtonVisibility(currentStep);
         }
@@ -505,15 +509,15 @@ window.onload = function () {
     const inputs = document.querySelectorAll('input, select, textarea');
     inputs.forEach(input => {
         input.addEventListener('input', function() {
-            console.log('input event triggered');
+            //console.log('input event triggered');
             updateNextButtonState();
         });
         input.addEventListener('change', function() {
-            console.log('change event triggered');
+            //console.log('change event triggered');
             updateNextButtonState();
         });
         input.addEventListener('keyup', function() {
-            console.log('change event triggered');
+            //console.log('change event triggered');
             updateNextButtonState();
         });
     });
@@ -591,6 +595,21 @@ function updateNextButtonState() {
 }
 
 
+function updatePagination(currentStep) {
+    const steps = document.querySelectorAll('.pagination-step');
+    steps.forEach((step, index) => {
+        step.classList.remove('step-current', 'step-checked');
+        if (index < currentStep+1) {
+            step.classList.add('step-checked');
+        } else if (index === currentStep+1) {
+            step.classList.add('step-current');
+        }
+    });
+}
+
+
+
+
 
 
 const programsByResponses = {
@@ -602,31 +621,213 @@ const programsByResponses = {
         "One-Year Vocational Program in Fashion Design",
     ],
     "00001": [
-        "My Atelier Experience 2",
+        "My Atelier Experience",
         "My Portfolio Experience | Fashion Design and Illustration",
         "Associate of Applied Science in Fashion Design",
         "Bachelor of Fine Arts in Fashion Design",
         "One-Year Vocational Program in Fashion Design",
     ],
     "00011": [
-        "My Atelier Experience 3",
+        "My Atelier Experience",
         "My Portfolio Experience | Fashion Design and Illustration",
         "Associate of Applied Science in Fashion Design",
         "Bachelor of Fine Arts in Fashion Design",
         "One-Year Vocational Program in Fashion Design",
     ],
+
+    "01100": [
+        "My Atelier Experience",
+        "My Portfolio Experience | Fashion Design and Illustration",
+        "Associate of Applied Science in Fashion Design",
+        "Bachelor of Fine Arts in Fashion Design",
+        "One-Year Vocational Program in Fashion Design",
+    ],
+    "01101": [
+        "My Atelier Experience",
+        "My Portfolio Experience | Fashion Design and Illustration",
+        "Associate of Applied Science in Fashion Design",
+        "Bachelor of Fine Arts in Fashion Design",
+        "One-Year Vocational Program in Fashion Design",
+    ],
+    "01111": [
+        "My Atelier Experience",
+        "My Portfolio Experience | Fashion Design and Illustration",
+        "Associate of Applied Science in Fashion Design",
+        "Bachelor of Fine Arts in Fashion Design",
+        "One-Year Vocational Program in Fashion Design",
+    ],
+
+    "02200": [
+        "My Atelier Experience",
+        "My Portfolio Experience | Fashion Design and Illustration",
+        "Associate of Applied Science in Fashion Design",
+        "Bachelor of Fine Arts in Fashion Design",
+        "One-Year Vocational Program in Fashion Design",
+    ],
+    "02201": [
+        "My Atelier Experience",
+        "My Portfolio Experience | Fashion Design and Illustration",
+        "Associate of Applied Science in Fashion Design",
+        "Bachelor of Fine Arts in Fashion Design",
+        "One-Year Vocational Program in Fashion Design",
+    ],
+    "02211": [
+        "My Atelier Experience",
+        "My Portfolio Experience | Fashion Design and Illustration",
+        "Associate of Applied Science in Fashion Design",
+        "Bachelor of Fine Arts in Fashion Design",
+        "One-Year Vocational Program in Fashion Design",
+    ],
+
+    "03300": [
+        "My Atelier Experience",
+        "My Portfolio Experience",
+        "Associate of Applied Science in Fashion Design",
+        "Bachelor of Fine Arts in Fashion Design",
+        "One-Year Vocational Program in Fashion Design",
+    ],
+    "03301": [
+        "My Atelier Experience",
+        "My Portfolio Experience",
+        "Associate of Applied Science in Fashion Design",
+        "Bachelor of Fine Arts in Fashion Design",
+        "One-Year Vocational Program in Fashion Design",
+    ],
+    "03311": [
+        "My Atelier Experience",
+        "My Portfolio Experience",
+        "Associate of Applied Science in Fashion Design",
+        "Bachelor of Fine Arts in Fashion Design",
+        "One-Year Vocational Program in Fashion Design",
+    ],
+
+    "10000": [
+        "One-Year Vocational Program in Fashion Design",
+    ],
+    "10001": [
+        "One-Year Vocational Program in Fashion Design",
+    ],
+    "10011": [
+        "One-Year Vocational Program in Fashion Design",
+    ],
+
+    "11100": [
+        "One-Year Vocational Program in Fashion Design",
+    ],
+    "11101": [
+        "One-Year Vocational Program in Fashion Design",
+    ],
+    "11111": [
+        "One-Year Vocational Program in Fashion Design",
+    ],
+
+    "12200": [
+        "One-Year Vocational Program in Fashion Design",
+    ],
+    "12201": [
+        "One-Year Vocational Program in Fashion Design",
+    ],
+    "12211": [
+        "One-Year Vocational Program in Fashion Design",
+    ],
+
+    "13300": [
+        "One-Year Vocational Program in Fashion Design",
+    ],
+    "13301": [
+        "One-Year Vocational Program in Fashion Design",
+    ],
+    "13311": [
+        "One-Year Vocational Program in Fashion Design",
+    ],
+
+    "20022": [
+        "Bachelor of Fine Arts in Fashion Design",
+        "Associate of Applied Science in Fashion Design",
+    ],
+    "21122": [
+        "Bachelor of Fine Arts in Fashion Design",
+        "Associate of Applied Science in Fashion Design",
+    ],
+    "22222": [
+        "Bachelor of Fine Arts in Fashion Design",
+        "Associate of Applied Science in Fashion Design",
+        "Master of Arts in Fashion Luxury and Brand Management",
+    ],
+    "23322": [
+        "Bachelor of Fine Arts in Fashion Design",
+        "Associate of Applied Science in Fashion Design",
+        "One-Year Vocational Program in Interior Design",
+    ],
+
+
+    "30022": [
+        "Bachelor of Fine Arts in Fashion Design",
+    ],
+    "31122": [
+        "Bachelor of Fine Arts in Fashion Design",
+    ],
+    "32222": [
+        "Bachelor of Fine Arts in Fashion Design",
+    ],
+    "33322": [
+        "Bachelor of Fine Arts in Fashion Design",
+    ],
+
+    "40023": [
+        "Bachelor of Fine Arts in Fashion Design",
+        "Master of Arts in Fashion Design",
+    ],
+    "41123": [
+        "Bachelor of Fine Arts in Fashion Design",
+    ],
+    "42223": [
+        "Bachelor of Fine Arts in Fashion Design",
+    ],
+    "43323": [
+        "Bachelor of Fine Arts in Fashion Design",
+        "Master of Arts in Fashion Design",
+    ],
+
 };
+
 
 function getProgramsByResponses(responses) {
     const key = responses.join("");
     return programsByResponses[key] || ["No matching programs found"];
 }
 
-const userResponses = [0, 0, 0, 1, 1];
-const recommendedPrograms = getProgramsByResponses(userResponses);
+function getAnswersForPrograms() {
+    const answersData = savedData;
+    let extractedKeys = [];
 
-console.log("Recommended Programs:", recommendedPrograms);
+    answersData.forEach(item => {
+        item.answers.forEach(answer => {
+            if (answer.text && Object.keys(answer.text).length > 0) {
+                const keys = Object.keys(answer.text);
+                extractedKeys = extractedKeys.concat(keys.map(key => Number(key)));
+            }
+        });
+    });
+
+    return getProgramsByResponses(extractedKeys);
+}
 
 
-
-
+function displayProgramsList() {
+    const programsListContainer = document.getElementById('programs-list-container');
+    programsListContainer.innerHTML = '';
+    const programsList = getAnswersForPrograms();
+    console.log('programsList', programsList);
+    if (programsList.length > 0) {
+        const ul = document.createElement('ul');
+        programsList.forEach(program => {
+            const li = document.createElement('li');
+            li.textContent = program;
+            ul.appendChild(li);
+        });
+        programsListContainer.appendChild(ul);
+    } else {
+        programsListContainer.innerHTML = 'No programs selected.';
+    }
+}
