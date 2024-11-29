@@ -122,7 +122,7 @@ var questionnaireData = {
         },
         {
             "index": 6,
-            "title": "Congratulations!\n" +
+            "title": "<span>Congratulations!</span>\n" +
                 "Based on your answers, we’ve found the perfect program for you at Istituto Marangoni Miami.",
             "type": "final",
             "subquestion": "a",

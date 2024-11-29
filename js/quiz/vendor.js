@@ -18,10 +18,10 @@ newQuestionnaireData.questions.forEach(function(question, index) {
     fieldset.classList.add('inner');
 
     var legend = document.createElement('legend');
-    legend.textContent = question.title;
+    legend.innerHTML = question.title;
 
     var p = document.createElement('p');
-    p.textContent = question.hint;
+    p.innerHTML = question.hint;
 
     var answersDiv = document.createElement('div');
     answersDiv.classList.add('quiz-answers');
