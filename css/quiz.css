@@ -33,50 +33,50 @@
 
 @font-face {
     font-family: "Helvetica Neue LT Std";
-    src: url(istitutomarangonimiami.com/public_html/wp-includes/fonts/Helvetica/Helvetica55Roman/Helvetica55Roman.otf) format("opentype");
+    src: url(../fonts/Helvetica/Helvetica55Roman/Helvetica55Roman.otf) format("opentype");
 }
 
 @font-face {
     font-family: "Helvetica Neue LT Std";
-    src: url(istitutomarangonimiami.com/public_html/wp-includes/fonts/Helvetica/Helvetica35Thin/Helvetica35Thin.otf) format("opentype");
+    src: url(../fonts/Helvetica/Helvetica35Thin/Helvetica35Thin.otf) format("opentype");
     font-weight: 100;
 }
 
 @font-face {
     font-family: "Helvetica Neue LT Std";
-    src: url(istitutomarangonimiami.com/public_html/wp-includes/fonts/Helvetica75Bold/Helvetica75Bold.otf) format("opentype");
+    src: url(../fonts/Helvetica75Bold/Helvetica75Bold.otf) format("opentype");
     font-weight: bold;
 }
 
 @font-face {
     font-family: "Helvetica Neue LT Std";
-    src: url(istitutomarangonimiami.com/public_html/wp-includes/fonts/Helvetica65Medium/Helvetica65Medium.otf) format("opentype");
+    src: url(../fonts/Helvetica65Medium/Helvetica65Medium.otf) format("opentype");
     font-weight: 500;
 }
 
 @font-face {
     font-family: "Helvetica Neue LT Std";
-    src: url(istitutomarangonimiami.com/public_html/wp-includes/fonts/Helvetica/Helvetica45Light/Helvetica45Light.otf) format("opentype");
+    src: url(../fonts/Helvetica/Helvetica45Light/Helvetica45Light.otf) format("opentype");
     font-weight: 300;
 }
 
 @font-face {
     font-family: "Helvetica Neue LT Std";
-    src: url(istitutomarangonimiami.com/public_html/wp-includes/fonts/Helvetica/Helvetica56Italic/Helvetica56Italic.otf) format("opentype");
+    src: url(../fonts/Helvetica/Helvetica56Italic/Helvetica56Italic.otf) format("opentype");
     font-style: italic;
     font-weight: 300;
 }
 
 @font-face {
     font-family: "Helvetica Neue LT Std";
-    src: url(istitutomarangonimiami.com/public_html/wp-includes/fonts/Helvetica/Helvetica56Italic/Helvetica56Italic.otf) format("opentype");
+    src: url(../fonts/Helvetica/Helvetica56Italic/Helvetica56Italic.otf) format("opentype");
     font-style: italic;
     font-weight: 400;
 }
 
 @font-face {
     font-family: "Helvetica Neue LT Std";
-    src: url(/wp-includes/fonts/Helvetica/Helvetica76BoldItalic/Helvetica76BoldItalic.otf) format("opentype");
+    src: url(../fonts/Helvetica/Helvetica76BoldItalic/Helvetica76BoldItalic.otf) format("opentype");
     font-style: italic;
     font-weight: bold;
 }
