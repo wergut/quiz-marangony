@@ -80,6 +80,9 @@ function nextStepHandler() {
         if (currentStep == 6) {
             document.getElementById('prevStep').style.display = 'none';
             document.getElementById('nextStep').style.display = 'none';
+
+            submitQuizData();
+
         }
 
         if (!validateCurrentStep(steps[currentStep])) {
@@ -615,191 +618,193 @@ function updatePagination(currentStep) {
 
 
 
-
 const programsByResponses = {
-    "00000": [
-        "My Atelier Experience",
-        "My Portfolio Experience | Fashion Design and Illustration",
-        "Associate of Applied Science in Fashion Design",
-        "Bachelor of Fine Arts in Fashion Design",
-        "One-Year Vocational Program in Fashion Design",
-    ],
-    "00001": [
-        "My Atelier Experience",
-        "My Portfolio Experience | Fashion Design and Illustration",
-        "Associate of Applied Science in Fashion Design",
-        "Bachelor of Fine Arts in Fashion Design",
-        "One-Year Vocational Program in Fashion Design",
-    ],
-    "00011": [
-        "My Atelier Experience",
-        "My Portfolio Experience | Fashion Design and Illustration",
-        "Associate of Applied Science in Fashion Design",
-        "Bachelor of Fine Arts in Fashion Design",
-        "One-Year Vocational Program in Fashion Design",
-    ],
+    "00000": {
+        "My Atelier Experience" : "https://www.istitutomarangonimiami.com/pre-college-courses/my-atelier-experience/",
+        "My Portfolio Experience | Fashion Design and Illustration" : "https://www.istitutomarangonimiami.com/pre-college-courses/my-portfolio-experience-fashion-illustration/",
+        "Associate of Applied Science in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/associate-of-applied-science-in-fashion-design/",
+        "Bachelor of Fine Arts in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/bachelor-of-fine-arts-in-fashion-design/",
+        "One-Year Vocational Program in Fashion Design" : "https://www.istitutomarangonimiami.com/vocational-programs/one-year-vocational-program-in-fashion-design/",
+    },
+    "00001": {
+        "My Atelier Experience" : "https://www.istitutomarangonimiami.com/pre-college-courses/my-atelier-experience/",
+        "My Portfolio Experience | Fashion Design and Illustration" : "https://www.istitutomarangonimiami.com/pre-college-courses/my-portfolio-experience-fashion-illustration/",
+        "Associate of Applied Science in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/associate-of-applied-science-in-fashion-design/",
+        "Bachelor of Fine Arts in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/bachelor-of-fine-arts-in-fashion-design/",
+        "One-Year Vocational Program in Fashion Design" : "https://www.istitutomarangonimiami.com/vocational-programs/one-year-vocational-program-in-fashion-design/",
+    },
+    "00011": {
+        "My Atelier Experience" : "https://www.istitutomarangonimiami.com/pre-college-courses/my-atelier-experience/",
+        "My Portfolio Experience | Fashion Design and Illustration" : "https://www.istitutomarangonimiami.com/pre-college-courses/my-portfolio-experience-fashion-illustration/",
+        "Associate of Applied Science in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/associate-of-applied-science-in-fashion-design/",
+        "Bachelor of Fine Arts in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/bachelor-of-fine-arts-in-fashion-design/",
+        "One-Year Vocational Program in Fashion Design" : "https://www.istitutomarangonimiami.com/vocational-programs/one-year-vocational-program-in-fashion-design/",
+    },
 
-    "01100": [
-        "My Atelier Experience",
-        "My Portfolio Experience | Fashion Design and Illustration",
-        "Associate of Applied Science in Fashion Design",
-        "Bachelor of Fine Arts in Fashion Design",
-        "One-Year Vocational Program in Fashion Design",
-    ],
-    "01101": [
-        "My Atelier Experience",
-        "My Portfolio Experience | Fashion Design and Illustration",
-        "Associate of Applied Science in Fashion Design",
-        "Bachelor of Fine Arts in Fashion Design",
-        "One-Year Vocational Program in Fashion Design",
-    ],
-    "01111": [
-        "My Atelier Experience",
-        "My Portfolio Experience | Fashion Design and Illustration",
-        "Associate of Applied Science in Fashion Design",
-        "Bachelor of Fine Arts in Fashion Design",
-        "One-Year Vocational Program in Fashion Design",
-    ],
+    "01100": {
+        "My Atelier Experience" : "https://www.istitutomarangonimiami.com/pre-college-courses/my-atelier-experience/",
+        "My Portfolio Experience | Fashion Design and Illustration" : "https://www.istitutomarangonimiami.com/pre-college-courses/my-portfolio-experience-fashion-illustration/",
+        "Associate of Applied Science in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/associate-of-applied-science-in-fashion-design/",
+        "Bachelor of Fine Arts in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/bachelor-of-fine-arts-in-fashion-design/",
+        "One-Year Vocational Program in Fashion Design" : "https://www.istitutomarangonimiami.com/vocational-programs/one-year-vocational-program-in-fashion-design/",
+    },
+    "01101": {
+        "My Atelier Experience" : "https://www.istitutomarangonimiami.com/pre-college-courses/my-atelier-experience/",
+        "My Portfolio Experience | Fashion Design and Illustration" : "https://www.istitutomarangonimiami.com/pre-college-courses/my-portfolio-experience-fashion-illustration/",
+        "Associate of Applied Science in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/associate-of-applied-science-in-fashion-design/",
+        "Bachelor of Fine Arts in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/bachelor-of-fine-arts-in-fashion-design/",
+        "One-Year Vocational Program in Fashion Design" : "https://www.istitutomarangonimiami.com/vocational-programs/one-year-vocational-program-in-fashion-design/",
+    },
+    "01111": {
+        "My Atelier Experience" : "https://www.istitutomarangonimiami.com/pre-college-courses/my-atelier-experience/",
+        "My Portfolio Experience | Fashion Design and Illustration" : "https://www.istitutomarangonimiami.com/pre-college-courses/my-portfolio-experience-fashion-illustration/",
+        "Associate of Applied Science in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/associate-of-applied-science-in-fashion-design/",
+        "Bachelor of Fine Arts in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/bachelor-of-fine-arts-in-fashion-design/",
+        "One-Year Vocational Program in Fashion Design" : "https://www.istitutomarangonimiami.com/vocational-programs/one-year-vocational-program-in-fashion-design/",
+    },
 
-    "02200": [
-        "My Atelier Experience",
-        "My Portfolio Experience | Fashion Design and Illustration",
-        "Associate of Applied Science in Fashion Design",
-        "Bachelor of Fine Arts in Fashion Design",
-        "One-Year Vocational Program in Fashion Design",
-    ],
-    "02201": [
-        "My Atelier Experience",
-        "My Portfolio Experience | Fashion Design and Illustration",
-        "Associate of Applied Science in Fashion Design",
-        "Bachelor of Fine Arts in Fashion Design",
-        "One-Year Vocational Program in Fashion Design",
-    ],
-    "02211": [
-        "My Atelier Experience",
-        "My Portfolio Experience | Fashion Design and Illustration",
-        "Associate of Applied Science in Fashion Design",
-        "Bachelor of Fine Arts in Fashion Design",
-        "One-Year Vocational Program in Fashion Design",
-    ],
+    "02200": {
+        "My Atelier Experience" : "https://www.istitutomarangonimiami.com/pre-college-courses/my-atelier-experience/",
+        "My Portfolio Experience | Fashion Design and Illustration" : "https://www.istitutomarangonimiami.com/pre-college-courses/my-portfolio-experience-fashion-illustration/",
+        "Associate of Applied Science in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/associate-of-applied-science-in-fashion-design/",
+        "Bachelor of Fine Arts in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/bachelor-of-fine-arts-in-fashion-design/",
+        "One-Year Vocational Program in Fashion Design" : "https://www.istitutomarangonimiami.com/vocational-programs/one-year-vocational-program-in-fashion-design/",
+    },
+    "02201": {
+        "My Atelier Experience" : "https://www.istitutomarangonimiami.com/pre-college-courses/my-atelier-experience/",
+        "My Portfolio Experience | Fashion Design and Illustration" : "https://www.istitutomarangonimiami.com/pre-college-courses/my-portfolio-experience-fashion-illustration/",
+        "Associate of Applied Science in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/associate-of-applied-science-in-fashion-design/",
+        "Bachelor of Fine Arts in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/bachelor-of-fine-arts-in-fashion-design/",
+        "One-Year Vocational Program in Fashion Design" : "https://www.istitutomarangonimiami.com/vocational-programs/one-year-vocational-program-in-fashion-design/",
+    },
+    "02211": {
+        "My Atelier Experience" : "https://www.istitutomarangonimiami.com/pre-college-courses/my-atelier-experience/",
+        "My Portfolio Experience | Fashion Design and Illustration" : "https://www.istitutomarangonimiami.com/pre-college-courses/my-portfolio-experience-fashion-illustration/",
+        "Associate of Applied Science in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/associate-of-applied-science-in-fashion-design/",
+        "Bachelor of Fine Arts in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/bachelor-of-fine-arts-in-fashion-design/",
+        "One-Year Vocational Program in Fashion Design" : "https://www.istitutomarangonimiami.com/vocational-programs/one-year-vocational-program-in-fashion-design/",
+    },
 
-    "03300": [
-        "My Atelier Experience",
-        "My Portfolio Experience",
-        "Associate of Applied Science in Fashion Design",
-        "Bachelor of Fine Arts in Fashion Design",
-        "One-Year Vocational Program in Fashion Design",
-    ],
-    "03301": [
-        "My Atelier Experience",
-        "My Portfolio Experience",
-        "Associate of Applied Science in Fashion Design",
-        "Bachelor of Fine Arts in Fashion Design",
-        "One-Year Vocational Program in Fashion Design",
-    ],
-    "03311": [
-        "My Atelier Experience",
-        "My Portfolio Experience",
-        "Associate of Applied Science in Fashion Design",
-        "Bachelor of Fine Arts in Fashion Design",
-        "One-Year Vocational Program in Fashion Design",
-    ],
+    "03300": {
+        "My Atelier Experience" : "https://www.istitutomarangonimiami.com/pre-college-courses/my-atelier-experience/",
+        "My Portfolio Experience" : "#",
+        "Associate of Applied Science in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/associate-of-applied-science-in-fashion-design/",
+        "Bachelor of Fine Arts in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/bachelor-of-fine-arts-in-fashion-design/",
+        "One-Year Vocational Program in Fashion Design" : "https://www.istitutomarangonimiami.com/vocational-programs/one-year-vocational-program-in-fashion-design/",
+    },
+    "03301": {
+        "My Atelier Experience" : "https://www.istitutomarangonimiami.com/pre-college-courses/my-atelier-experience/",
+        "My Portfolio Experience" : "#",
+        "Associate of Applied Science in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/associate-of-applied-science-in-fashion-design/",
+        "Bachelor of Fine Arts in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/bachelor-of-fine-arts-in-fashion-design/",
+        "One-Year Vocational Program in Fashion Design" : "https://www.istitutomarangonimiami.com/vocational-programs/one-year-vocational-program-in-fashion-design/",
+    },
+    "03311": {
+        "My Atelier Experience" : "https://www.istitutomarangonimiami.com/pre-college-courses/my-atelier-experience/",
+        "My Portfolio Experience" : "#",
+        "Associate of Applied Science in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/associate-of-applied-science-in-fashion-design/",
+        "Bachelor of Fine Arts in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/bachelor-of-fine-arts-in-fashion-design/",
+        "One-Year Vocational Program in Fashion Design" : "https://www.istitutomarangonimiami.com/vocational-programs/one-year-vocational-program-in-fashion-design/",
+    },
 
-    "10000": [
-        "One-Year Vocational Program in Fashion Design",
-    ],
-    "10001": [
-        "One-Year Vocational Program in Fashion Design",
-    ],
-    "10011": [
-        "One-Year Vocational Program in Fashion Design",
-    ],
+    "10000": {
+        "One-Year Vocational Program in Fashion Design" : "https://www.istitutomarangonimiami.com/vocational-programs/one-year-vocational-program-in-fashion-design/",
+    },
+    "10001": {
+        "One-Year Vocational Program in Fashion Design" : "https://www.istitutomarangonimiami.com/vocational-programs/one-year-vocational-program-in-fashion-design/",
+    },
+    "10011": {
+        "One-Year Vocational Program in Fashion Design" : "https://www.istitutomarangonimiami.com/vocational-programs/one-year-vocational-program-in-fashion-design/",
+    },
 
-    "11100": [
-        "One-Year Vocational Program in Fashion Design",
-    ],
-    "11101": [
-        "One-Year Vocational Program in Fashion Design",
-    ],
-    "11111": [
-        "One-Year Vocational Program in Fashion Design",
-    ],
+    "11100": {
+        "One-Year Vocational Program in Fashion Design" : "https://www.istitutomarangonimiami.com/vocational-programs/one-year-vocational-program-in-fashion-design/",
+    },
+    "11101": {
+        "One-Year Vocational Program in Fashion Design" : "https://www.istitutomarangonimiami.com/vocational-programs/one-year-vocational-program-in-fashion-design/",
+    },
+    "11111": {
+        "One-Year Vocational Program in Fashion Design" : "https://www.istitutomarangonimiami.com/vocational-programs/one-year-vocational-program-in-fashion-design/",
+    },
 
-    "12200": [
-        "One-Year Vocational Program in Fashion Design",
-    ],
-    "12201": [
-        "One-Year Vocational Program in Fashion Design",
-    ],
-    "12211": [
-        "One-Year Vocational Program in Fashion Design",
-    ],
+    "12200": {
+        "One-Year Vocational Program in Fashion Design" : "https://www.istitutomarangonimiami.com/vocational-programs/one-year-vocational-program-in-fashion-design/",
+    },
+    "12201": {
+        "One-Year Vocational Program in Fashion Design" : "https://www.istitutomarangonimiami.com/vocational-programs/one-year-vocational-program-in-fashion-design/",
+    },
+    "12211": {
+        "One-Year Vocational Program in Fashion Design" : "https://www.istitutomarangonimiami.com/vocational-programs/one-year-vocational-program-in-fashion-design/",
+    },
 
-    "13300": [
-        "One-Year Vocational Program in Fashion Design",
-    ],
-    "13301": [
-        "One-Year Vocational Program in Fashion Design",
-    ],
-    "13311": [
-        "One-Year Vocational Program in Fashion Design",
-    ],
+    "13300": {
+        "One-Year Vocational Program in Fashion Design" : "https://www.istitutomarangonimiami.com/vocational-programs/one-year-vocational-program-in-fashion-design/",
+    },
+    "13301": {
+        "One-Year Vocational Program in Fashion Design" : "https://www.istitutomarangonimiami.com/vocational-programs/one-year-vocational-program-in-fashion-design/",
+    },
+    "13311": {
+        "One-Year Vocational Program in Fashion Design" : "https://www.istitutomarangonimiami.com/vocational-programs/one-year-vocational-program-in-fashion-design/",
+    },
 
-    "20022": [
-        "Bachelor of Fine Arts in Fashion Design",
-        "Associate of Applied Science in Fashion Design",
-    ],
-    "21122": [
-        "Bachelor of Fine Arts in Fashion Design",
-        "Associate of Applied Science in Fashion Design",
-    ],
-    "22222": [
-        "Bachelor of Fine Arts in Fashion Design",
-        "Associate of Applied Science in Fashion Design",
-        "Master of Arts in Fashion Luxury and Brand Management",
-    ],
-    "23322": [
-        "Bachelor of Fine Arts in Fashion Design",
-        "Associate of Applied Science in Fashion Design",
-        "One-Year Vocational Program in Interior Design",
-    ],
+    "20022": {
+        "Bachelor of Fine Arts in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/bachelor-of-fine-arts-in-fashion-design/",
+        "Associate of Applied Science in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/associate-of-applied-science-in-fashion-design/",
+    },
+    "21122": {
+        "Bachelor of Fine Arts in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/bachelor-of-fine-arts-in-fashion-design/",
+        "Associate of Applied Science in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/associate-of-applied-science-in-fashion-design/",
+    },
+    "22222": {
+        "Bachelor of Fine Arts in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/bachelor-of-fine-arts-in-fashion-design/",
+        "Associate of Applied Science in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/associate-of-applied-science-in-fashion-design/",
+        "Master of Arts in Fashion Luxury and Brand Management" : "https://www.istitutomarangonimiami.com/graduate-programs/master-of-arts-in-fashion-luxury-and-brand-management/",
+    },
+    "23322": {
+        "Bachelor of Fine Arts in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/bachelor-of-fine-arts-in-fashion-design/",
+        "Associate of Applied Science in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/associate-of-applied-science-in-fashion-design/",
+        "One-Year Vocational Program in Interior Design" : "https://www.istitutomarangonimiami.com/vocational-programs/one-year-vocational-program-in-interior-design/",
+    },
 
+    "30022": {
+        "Bachelor of Fine Arts in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/bachelor-of-fine-arts-in-fashion-design/",
+    },
+    "31122": {
+        "Bachelor of Fine Arts in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/bachelor-of-fine-arts-in-fashion-design/",
+    },
+    "32222": {
+        "Bachelor of Fine Arts in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/bachelor-of-fine-arts-in-fashion-design/",
+    },
+    "33322": {
+        "Bachelor of Fine Arts in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/bachelor-of-fine-arts-in-fashion-design/",
+    },
 
-    "30022": [
-        "Bachelor of Fine Arts in Fashion Design",
-    ],
-    "31122": [
-        "Bachelor of Fine Arts in Fashion Design",
-    ],
-    "32222": [
-        "Bachelor of Fine Arts in Fashion Design",
-    ],
-    "33322": [
-        "Bachelor of Fine Arts in Fashion Design",
-    ],
-
-    "40023": [
-        "Bachelor of Fine Arts in Fashion Design",
-        "Master of Arts in Fashion Design",
-    ],
-    "41123": [
-        "Bachelor of Fine Arts in Fashion Design",
-    ],
-    "42223": [
-        "Bachelor of Fine Arts in Fashion Design",
-    ],
-    "43323": [
-        "Bachelor of Fine Arts in Fashion Design",
-        "Master of Arts in Fashion Design",
-    ],
+    "40023": {
+        "Bachelor of Fine Arts in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/bachelor-of-fine-arts-in-fashion-design/",
+        "Master of Arts in Fashion Design" : "https://www.istitutomarangonimiami.com/graduate-programs/master-of-arts-in-fashion-design/",
+    },
+    "41123": {
+        "Bachelor of Fine Arts in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/bachelor-of-fine-arts-in-fashion-design/",
+    },
+    "42223": {
+        "Bachelor of Fine Arts in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/bachelor-of-fine-arts-in-fashion-design/",
+    },
+    "43323": {
+        "Bachelor of Fine Arts in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/bachelor-of-fine-arts-in-fashion-design/",
+        "Master of Arts in Fashion Design" : "https://www.istitutomarangonimiami.com/graduate-programs/master-of-arts-in-fashion-design/",
+    },
 
 };
 
 
+
 function getProgramsByResponses(responses) {
     const key = responses.join("");
-    return programsByResponses[key] || ["No matching programs found"];
+
+    window.programs = programsByResponses[key] || "No matching programs found";
+    return programsByResponses[key] || "No matching programs found";
 }
+
 
 function getAnswersForPrograms() {
     const answersData = savedData;
@@ -814,6 +819,11 @@ function getAnswersForPrograms() {
         });
     });
 
+    if (extractedKeys.length === 0) {
+        extractedKeys = [4, 0, 0, 2, 3];
+    }
+
+    //console.log("Final extracted keys:", extractedKeys);
     return getProgramsByResponses(extractedKeys);
 }
 
@@ -821,17 +831,52 @@ function getAnswersForPrograms() {
 function displayProgramsList() {
     const programsListContainer = document.getElementById('programs-list-container');
     programsListContainer.innerHTML = '';
-    const programsList = getAnswersForPrograms();
 
-    if (programsList.length > 0) {
-        const ul = document.createElement('ul');
-        programsList.forEach(program => {
-            const li = document.createElement('li');
-            li.textContent = program;
-            ul.appendChild(li);
-        });
-        programsListContainer.appendChild(ul);
+    const programsList = getAnswersForPrograms();
+    //console.log("Programs List:", programsList);
+
+    if (typeof programsList === 'object' && !Array.isArray(programsList)) {
+        const programsArray = Object.entries(programsList);
+        //console.log("Programs Array:", programsArray);
+
+        if (programsArray.length > 0) {
+            const ul = document.createElement('ul');
+
+            programsArray.forEach(([programName, programUrl]) => {
+                const li = document.createElement('li');
+                const a = document.createElement('a');
+                a.textContent = programName;
+                a.href = programUrl || '#';
+                a.target = '_blank';
+
+                li.appendChild(a);
+                ul.appendChild(li);
+            });
+
+            programsListContainer.appendChild(ul);
+        } else {
+            programsListContainer.innerHTML = 'No matching programs found.';
+        }
     } else {
-        programsListContainer.innerHTML = 'No programs selected.';
+        programsListContainer.innerHTML = 'Invalid data format.';
     }
+}
+
+function submitQuizData() {
+    const formData = new FormData();
+    formData.append('savedData', JSON.stringify(savedData));
+    formData.append('programs', JSON.stringify(window.programs));
+
+
+    fetch('quiz.php', {
+        method: 'POST',
+        body: formData
+    })
+        .then(response => response.json())
+        .then(data => {
+            displayResults(data);
+        })
+        .catch(error => {
+            console.error('Ошибка:', error);
+        });
 }
