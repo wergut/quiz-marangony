@@ -628,9 +628,4 @@ fieldset {
         width: initial;
         overflow: initial;
     }
-    .tooltip .tooltip-text {
-        top: 49px;
-        left: 0;
-        max-width: 100%;
-    }
 }
