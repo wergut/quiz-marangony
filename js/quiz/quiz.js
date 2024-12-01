@@ -80,6 +80,9 @@ function nextStepHandler() {
         if (currentStep == 6) {
             document.getElementById('prevStep').style.display = 'none';
             document.getElementById('nextStep').style.display = 'none';
+
+            submitQuizData();
+
         }
 
         if (!validateCurrentStep(steps[currentStep])) {
@@ -797,6 +800,8 @@ const programsByResponses = {
 
 function getProgramsByResponses(responses) {
     const key = responses.join("");
+
+    window.programs = programsByResponses[key] || "No matching programs found";
     return programsByResponses[key] || "No matching programs found";
 }
 
@@ -855,4 +860,23 @@ function displayProgramsList() {
     } else {
         programsListContainer.innerHTML = 'Invalid data format.';
     }
+}
+
+function submitQuizData() {
+    const formData = new FormData();
+    formData.append('savedData', JSON.stringify(savedData));
+    formData.append('programs', JSON.stringify(window.programs));
+
+
+    fetch('quiz.php', {
+        method: 'POST',
+        body: formData
+    })
+        .then(response => response.json())
+        .then(data => {
+            displayResults(data);
+        })
+        .catch(error => {
+            console.error('Ошибка:', error);
+        });
 }
