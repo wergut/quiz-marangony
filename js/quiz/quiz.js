@@ -5,6 +5,8 @@ if (typeof $.fn.select2 === 'function') {
 } else {
     console.log("select2 is not available");
 }
+
+
 var steps = document.querySelectorAll('.step');
 var nextButton = document.getElementById('nextStep');
 var prevButton = document.getElementById('prevStep');
@@ -76,7 +78,6 @@ function nextStepHandler() {
         if (currentStep == 5 ){
             displayProgramsList();
         }
-
         if (currentStep == 6) {
             document.getElementById('prevStep').style.display = 'none';
             document.getElementById('nextStep').style.display = 'none';
@@ -616,249 +617,424 @@ function updatePagination(currentStep) {
 
 
 
+/*
+const programsMapping = {
+    "0": { // Question 1: What is your current level of education?
+        "0": [ // Currently in high school
+            "Fashion Summer Camp",
+            "My Portfolio Experience | Fashion Design and Illustration",
+            "My Portfolio Experience | Fashion Styling and Business",
+            "My Atelier Experience",
+            "Associate of Applied Science in Fashion Design",
+            "Associate of Applied Science in Fashion Styling",
+            "Associate of Applied Science in Fashion Business",
+            "Associate of Applied Science in Kitchen and Bath Design",
+            "Bachelor of Fine Arts in Fashion Design",
+            "Bachelor of Fine Arts in Fashion Styling",
+            "Bachelor of Science in Fashion Business",
+            "Bachelor of Fine Arts in Interior Design",
+            "One-Year Vocational Program in Fashion Design",
+            "One-Year Vocational Program in Fashion Styling",
+            "One-Year Vocational Program in Fashion Business",
+            "One-Year Vocational Program in Interior Design"
+        ],
+        "1": [ // High school or equivalent
+            "One-Year Vocational Program in Fashion Design",
+            "One-Year Vocational Program in Fashion Styling",
+            "One-Year Vocational Program in Fashion Business",
+            "One-Year Vocational Program in Interior Design",
+            "My Portfolio Experience | Fashion Design and Illustration",
+            "My Portfolio Experience | Fashion Styling and Business"
+        ],
+        "2": [ // Some college
+            "Associate of Applied Science in Fashion Design",
+            "Associate of Applied Science in Fashion Styling",
+            "Associate of Applied Science in Fashion Business",
+            "Associate of Applied Science in Kitchen and Bath Design",
+            "Bachelor of Fine Arts in Fashion Design",
+            "Bachelor of Fine Arts in Fashion Styling",
+            "Bachelor of Science in Fashion Business",
+            "Bachelor of Fine Arts in Interior Design",
+            "One-Year Vocational Program in Fashion Design",
+            "One-Year Vocational Program in Fashion Styling",
+            "One-Year Vocational Program in Fashion Business",
+            "One-Year Vocational Program in Interior Design"
+        ],
+        "3": [ // Associate degree
+            "Bachelor of Fine Arts in Fashion Design",
+            "Bachelor of Fine Arts in Fashion Styling",
+            "Bachelor of Science in Fashion Business",
+            "Bachelor of Fine Arts in Interior Design",
+            "One-Year Vocational Program in Fashion Design",
+            "One-Year Vocational Program in Fashion Styling",
+            "One-Year Vocational Program in Fashion Business",
+            "One-Year Vocational Program in Interior Design"
+        ],
+        "4": [ // Bachelor's degree or higher
+            "Master of Arts in Fashion Luxury and Brand Management",
+            "Master of Arts in Fashion Design",
+            "Master of Fine Arts in Interior Design",
+            "Master of Arts in Digital Communications and Social Media Strategy",
+            "One-Year Vocational Program in Fashion Design",
+            "One-Year Vocational Program in Fashion Styling",
+            "One-Year Vocational Program in Fashion Business",
+            "One-Year Vocational Program in Interior Design"
+        ]
+    },
+    "1": { // Question 2: What is your primary area of interest?
+        "0": [ // Fashion Design
+            "Associate of Applied Science in Fashion Design",
+            "Bachelor of Fine Arts in Fashion Design",
+            "One-Year Vocational Program in Fashion Design",
+            "Master of Arts in Fashion Design"
+        ],
+        "1": [ // Fashion Styling
+            "Associate of Applied Science in Fashion Styling",
+            "Bachelor of Fine Arts in Fashion Styling",
+            "One-Year Vocational Program in Fashion Styling",
+            "My Portfolio Experience | Fashion Styling and Business"
+        ],
+        "2": [ // Fashion Business
+            "Associate of Applied Science in Fashion Business",
+            "Bachelor of Science in Fashion Business",
+            "One-Year Vocational Program in Fashion Business",
+            "Master of Arts in Digital Communications and Social Media Strategy",
+            "Master of Arts in Fashion Luxury and Brand Management"
+        ],
+        "3": [ // Interior Design
+            "Associate of Applied Science in Kitchen and Bath Design",
+            "Bachelor of Fine Arts in Interior Design",
+            "One-Year Vocational Program in Interior Design",
+            "Master of Fine Arts in Interior Design"
+        ]
+    },
+    "2": { // Question 3: What is your career goal?
+        "0": [ // To start my own fashion line and create original designs
+            "My Atelier Experience",
+            "My Portfolio Experience | Fashion Design and Illustration",
+            "Associate of Applied Science in Fashion Design",
+            "Bachelor of Fine Arts in Fashion Design",
+            "Master of Arts in Fashion Design"
+        ],
+        "1": [ // To become a renowned fashion stylist
+            "My Atelier Experience",
+            "My Portfolio Experience | Fashion Styling and Business",
+            "Associate of Applied Science in Fashion Styling",
+            "Bachelor of Fine Arts in Fashion Styling"
+        ],
+        "2": [ // To manage and grow a fashion business
+            "Associate of Applied Science in Fashion Business",
+            "Bachelor of Science in Fashion Business",
+            "Master of Arts in Digital Communications and Social Media Strategy",
+            "Master of Arts in Fashion Luxury and Brand Management"
+        ],
+        "3": [ // To design and create interior spaces
+            "Associate of Applied Science in Kitchen and Bath Design",
+            "Bachelor of Fine Arts in Interior Design",
+            "Master of Fine Arts in Interior Design"
+        ]
+    },
+    "3": { // Question 4: How much time are you willing to dedicate to your education?
+        "0": [ // One year or less
+            "My Atelier Experience",
+            "My Portfolio Experience | Fashion Design and Illustration",
+            "My Portfolio Experience | Fashion Styling and Business",
+            "Fashion Summer Camp",
+            "One-Year Vocational Program in Fashion Design",
+            "One-Year Vocational Program in Fashion Styling",
+            "One-Year Vocational Program in Fashion Business",
+            "One-Year Vocational Program in Interior Design"
+        ],
+        "1": [ // Two years
+            "Associate of Applied Science in Fashion Design",
+            "Associate of Applied Science in Fashion Styling",
+            "Associate of Applied Science in Fashion Business",
+            "Associate of Applied Science in Kitchen and Bath Design",
+            "One-Year Vocational Program in Fashion Design",
+            "One-Year Vocational Program in Fashion Styling",
+            "One-Year Vocational Program in Fashion Business",
+            "One-Year Vocational Program in Interior Design"
+        ],
+        "2": [ // Four years
+            "Bachelor of Fine Arts in Fashion Design",
+            "Bachelor of Fine Arts in Fashion Styling",
+            "Bachelor of Science in Fashion Business",
+            "Bachelor of Fine Arts in Interior Design",
+            "Master of Arts in Fashion Luxury and Brand Management",
+            "Master of Arts in Digital Communications and Social Media Strategy",
+            "Master of Arts in Fashion Design",
+            "Master of Fine Arts in Interior Design"
+        ]
+    },
+    "4": { // Question 5: Which learning experience interests you the most?
+        "0": [ // Short-term immersive experiences
+            "Fashion Summer Camp",
+            "My Portfolio Experience | Fashion Design and Illustration",
+            "My Portfolio Experience | Fashion Styling and Business",
+            "My Atelier Experience"
+        ],
+        "1": [ // Hands-on vocational training
+            "One-Year Vocational Program in Fashion Design",
+            "One-Year Vocational Program in Fashion Styling",
+            "One-Year Vocational Program in Fashion Business",
+            "One-Year Vocational Program in Interior Design"
+        ],
+        "2": [ // Comprehensive degree programs
+            "Associate of Applied Science in Fashion Design",
+            "Associate of Applied Science in Fashion Styling",
+            "Associate of Applied Science in Fashion Business",
+            "Associate of Applied Science in Kitchen and Bath Design",
+            "Bachelor of Fine Arts in Fashion Design",
+            "Bachelor of Fine Arts in Fashion Styling",
+            "Bachelor of Science in Fashion Business",
+            "Bachelor of Fine Arts in Interior Design"
+        ],
+        "3": [ // Advanced specialized studies
+            "Master of Arts in Fashion Luxury and Brand Management",
+            "Master of Arts in Digital Communications and Social Media Strategy",
+            "Master of Arts in Fashion Design",
+            "Master of Fine Arts in Interior Design"
+        ]
+    }
+};
+*/
 
-
-const programsByResponses = {
-    "00000": {
-        "My Atelier Experience" : "https://www.istitutomarangonimiami.com/pre-college-courses/my-atelier-experience/",
-        "My Portfolio Experience | Fashion Design and Illustration" : "https://www.istitutomarangonimiami.com/pre-college-courses/my-portfolio-experience-fashion-illustration/",
-        "Associate of Applied Science in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/associate-of-applied-science-in-fashion-design/",
-        "Bachelor of Fine Arts in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/bachelor-of-fine-arts-in-fashion-design/",
-        "One-Year Vocational Program in Fashion Design" : "https://www.istitutomarangonimiami.com/vocational-programs/one-year-vocational-program-in-fashion-design/",
+const programsMapping = {
+    "0": { // Question 1: What is your current level of education?
+        "0": [
+            { name: "Fashion Summer Camp", link: "https://example.com/fashion-summer-camp" },
+            { name: "My Portfolio Experience | Fashion Design and Illustration", link: "https://example.com/portfolio-design" },
+            { name: "My Portfolio Experience | Fashion Styling and Business", link: "https://example.com/portfolio-styling" },
+            { name: "My Atelier Experience", link: "https://example.com/atelier-experience" },
+            { name: "Associate of Applied Science in Fashion Design", link: "https://example.com/aas-fashion-design" },
+            { name: "Associate of Applied Science in Fashion Styling", link: "https://example.com/aas-fashion-styling" },
+            { name: "Associate of Applied Science in Fashion Business", link: "https://example.com/aas-fashion-business" },
+            { name: "Associate of Applied Science in Kitchen and Bath Design", link: "https://example.com/aas-kitchen-bath" },
+            { name: "Bachelor of Fine Arts in Fashion Design", link: "https://example.com/bfa-fashion-design" },
+            { name: "Bachelor of Fine Arts in Fashion Styling", link: "https://example.com/bfa-fashion-styling" },
+            { name: "Bachelor of Science in Fashion Business", link: "https://example.com/bs-fashion-business" },
+            { name: "Bachelor of Fine Arts in Interior Design", link: "https://example.com/bfa-interior-design" },
+            { name: "One-Year Vocational Program in Fashion Design", link: "https://example.com/one-year-fashion-design" },
+            { name: "One-Year Vocational Program in Fashion Styling", link: "https://example.com/one-year-fashion-styling" },
+            { name: "One-Year Vocational Program in Fashion Business", link: "https://example.com/one-year-fashion-business" },
+            { name: "One-Year Vocational Program in Interior Design", link: "https://example.com/one-year-interior-design" }
+        ],
+        "1": [
+            { name: "One-Year Vocational Program in Fashion Design", link: "https://example.com/one-year-fashion-design" },
+            { name: "One-Year Vocational Program in Fashion Styling", link: "https://example.com/one-year-fashion-styling" },
+            { name: "One-Year Vocational Program in Fashion Business", link: "https://example.com/one-year-fashion-business" },
+            { name: "One-Year Vocational Program in Interior Design", link: "https://example.com/one-year-interior-design" },
+            { name: "My Portfolio Experience | Fashion Design and Illustration", link: "https://example.com/portfolio-design" },
+            { name: "My Portfolio Experience | Fashion Styling and Business", link: "https://example.com/portfolio-styling" }
+        ],
+        "2": [
+            { name: "Associate of Applied Science in Fashion Design", link: "https://example.com/aas-fashion-design" },
+            { name: "Associate of Applied Science in Fashion Styling", link: "https://example.com/aas-fashion-styling" },
+            { name: "Associate of Applied Science in Fashion Business", link: "https://example.com/aas-fashion-business" },
+            { name: "Associate of Applied Science in Kitchen and Bath Design", link: "https://example.com/aas-kitchen-bath" },
+            { name: "Bachelor of Fine Arts in Fashion Design", link: "https://example.com/bfa-fashion-design" },
+            { name: "Bachelor of Fine Arts in Fashion Styling", link: "https://example.com/bfa-fashion-styling" },
+            { name: "Bachelor of Science in Fashion Business", link: "https://example.com/bs-fashion-business" },
+            { name: "Bachelor of Fine Arts in Interior Design", link: "https://example.com/bfa-interior-design" },
+            { name: "One-Year Vocational Program in Fashion Design", link: "https://example.com/one-year-fashion-design" },
+            { name: "One-Year Vocational Program in Fashion Styling", link: "https://example.com/one-year-fashion-styling" },
+            { name: "One-Year Vocational Program in Fashion Business", link: "https://example.com/one-year-fashion-business" },
+            { name: "One-Year Vocational Program in Interior Design", link: "https://example.com/one-year-interior-design" }
+        ],
+        "3": [
+            { name: "Bachelor of Fine Arts in Fashion Design", link: "https://example.com/bfa-fashion-design" },
+            { name: "Bachelor of Fine Arts in Fashion Styling", link: "https://example.com/bfa-fashion-styling" },
+            { name: "Bachelor of Science in Fashion Business", link: "https://example.com/bs-fashion-business" },
+            { name: "Bachelor of Fine Arts in Interior Design", link: "https://example.com/bfa-interior-design" },
+            { name: "One-Year Vocational Program in Fashion Design", link: "https://example.com/one-year-fashion-design" },
+            { name: "One-Year Vocational Program in Fashion Styling", link: "https://example.com/one-year-fashion-styling" },
+            { name: "One-Year Vocational Program in Fashion Business", link: "https://example.com/one-year-fashion-business" },
+            { name: "One-Year Vocational Program in Interior Design", link: "https://example.com/one-year-interior-design" }
+        ],
+        "4": [
+            { name: "Master of Arts in Fashion Luxury and Brand Management", link: "https://example.com/ma-fashion-luxury" },
+            { name: "Master of Arts in Fashion Design", link: "https://example.com/ma-fashion-design" },
+            { name: "Master of Fine Arts in Interior Design", link: "https://example.com/mfa-interior-design" },
+            { name: "Master of Arts in Digital Communications and Social Media Strategy", link: "https://example.com/ma-digital-communications" },
+            { name: "One-Year Vocational Program in Fashion Design", link: "https://example.com/one-year-fashion-design" },
+            { name: "One-Year Vocational Program in Fashion Styling", link: "https://example.com/one-year-fashion-styling" },
+            { name: "One-Year Vocational Program in Fashion Business", link: "https://example.com/one-year-fashion-business" },
+            { name: "One-Year Vocational Program in Interior Design", link: "https://example.com/one-year-interior-design" }
+        ]
     },
-    "00001": {
-        "My Atelier Experience" : "https://www.istitutomarangonimiami.com/pre-college-courses/my-atelier-experience/",
-        "My Portfolio Experience | Fashion Design and Illustration" : "https://www.istitutomarangonimiami.com/pre-college-courses/my-portfolio-experience-fashion-illustration/",
-        "Associate of Applied Science in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/associate-of-applied-science-in-fashion-design/",
-        "Bachelor of Fine Arts in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/bachelor-of-fine-arts-in-fashion-design/",
-        "One-Year Vocational Program in Fashion Design" : "https://www.istitutomarangonimiami.com/vocational-programs/one-year-vocational-program-in-fashion-design/",
+    "1": { // Question 2: What is your primary area of interest?
+        "0": [
+            { name: "One-Year Vocational Program in Fashion Design", link: "https://example.com/one-year-fashion-design" },
+            { name: "My Atelier Experience", link: "https://example.com/atelier-experience" },
+            { name: "My Portfolio Experience | Fashion Design and Illustration", link: "https://example.com/portfolio-design" },
+            { name: "Associate of Applied Science in Fashion Design", link: "https://example.com/aas-fashion-design" },
+            { name: "Bachelor of Fine Arts in Fashion Design", link: "https://example.com/bfa-fashion-design" },
+            { name: "Master of Arts in Fashion Design", link: "https://example.com/ma-fashion-design" }
+        ],
+        "1": [
+            { name: "One-Year Vocational Program in Fashion Styling", link: "https://example.com/one-year-fashion-styling" },
+            { name: "My Atelier Experience", link: "https://example.com/atelier-experience" },
+            { name: "My Portfolio Experience | Fashion Styling and Business", link: "https://example.com/portfolio-styling" },
+            { name: "Associate of Applied Science in Fashion Styling", link: "https://example.com/aas-fashion-styling" },
+            { name: "Bachelor of Fine Arts in Fashion Styling", link: "https://example.com/bfa-fashion-styling" }
+        ],
+        "2": [
+            { name: "One-Year Vocational Program in Fashion Business", link: "https://example.com/one-year-fashion-business" },
+            { name: "Associate of Applied Science in Fashion Business", link: "https://example.com/aas-fashion-business" },
+            { name: "Bachelor of Science in Fashion Business", link: "https://example.com/bs-fashion-business" },
+            { name: "Master of Arts in Digital Communications and Social Media Strategy", link: "https://example.com/ma-digital-communications" },
+            { name: "Master of Arts in Fashion Luxury and Brand Management", link: "https://example.com/ma-fashion-luxury" }
+        ],
+        "3": [
+            { name: "One-Year Vocational Program in Interior Design", link: "https://example.com/one-year-interior-design" },
+            { name: "Associate of Applied Science in Kitchen and Bath Design", link: "https://example.com/aas-kitchen-bath" },
+            { name: "Bachelor of Fine Arts in Interior Design", link: "https://example.com/bfa-interior-design" },
+            { name: "Master of Fine Arts in Interior Design", link: "https://example.com/mfa-interior-design" }
+        ]
     },
-    "00011": {
-        "My Atelier Experience" : "https://www.istitutomarangonimiami.com/pre-college-courses/my-atelier-experience/",
-        "My Portfolio Experience | Fashion Design and Illustration" : "https://www.istitutomarangonimiami.com/pre-college-courses/my-portfolio-experience-fashion-illustration/",
-        "Associate of Applied Science in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/associate-of-applied-science-in-fashion-design/",
-        "Bachelor of Fine Arts in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/bachelor-of-fine-arts-in-fashion-design/",
-        "One-Year Vocational Program in Fashion Design" : "https://www.istitutomarangonimiami.com/vocational-programs/one-year-vocational-program-in-fashion-design/",
+    "2": { // Question 3: What is your career goal?
+        "0": [
+            { name: "One-Year Vocational Program in Fashion Design", link: "https://example.com/one-year-fashion-design" },
+            { name: "My Atelier Experience", link: "https://example.com/atelier-experience" },
+            { name: "My Portfolio Experience | Fashion Design and Illustration", link: "https://example.com/portfolio-design" },
+            { name: "Associate of Applied Science in Fashion Design", link: "https://example.com/aas-fashion-design" },
+            { name: "Bachelor of Fine Arts in Fashion Design", link: "https://example.com/bfa-fashion-design" },
+            { name: "Master of Arts in Fashion Design", link: "https://example.com/ma-fashion-design" }
+        ],
+        "1": [
+            { name: "One-Year Vocational Program in Fashion Styling", link: "https://example.com/one-year-fashion-styling" },
+            { name: "My Atelier Experience", link: "https://example.com/atelier-experience" },
+            { name: "My Portfolio Experience | Fashion Styling and Business", link: "https://example.com/portfolio-styling" },
+            { name: "Associate of Applied Science in Fashion Styling", link: "https://example.com/aas-fashion-styling" },
+            { name: "Bachelor of Fine Arts in Fashion Styling", link: "https://example.com/bfa-fashion-styling" }
+        ],
+        "2": [
+            { name: "One-Year Vocational Program in Fashion Business", link: "https://example.com/one-year-fashion-business" },
+            { name: "Associate of Applied Science in Fashion Business", link: "https://example.com/aas-fashion-business" },
+            { name: "Bachelor of Science in Fashion Business", link: "https://example.com/bs-fashion-business" },
+            { name: "Master of Arts in Digital Communications and Social Media Strategy", link: "https://example.com/ma-digital-communications" },
+            { name: "Master of Arts in Fashion Luxury and Brand Management", link: "https://example.com/ma-fashion-luxury" }
+        ],
+        "3": [
+            { name: "One-Year Vocational Program in Interior Design", link: "https://example.com/one-year-interior-design" },
+            { name: "Associate of Applied Science in Kitchen and Bath Design", link: "https://example.com/aas-kitchen-bath" },
+            { name: "Bachelor of Fine Arts in Interior Design", link: "https://example.com/bfa-interior-design" },
+            { name: "Master of Fine Arts in Interior Design", link: "https://example.com/mfa-interior-design" }
+        ]
     },
-
-    "01100": {
-        "My Atelier Experience" : "https://www.istitutomarangonimiami.com/pre-college-courses/my-atelier-experience/",
-        "My Portfolio Experience | Fashion Design and Illustration" : "https://www.istitutomarangonimiami.com/pre-college-courses/my-portfolio-experience-fashion-illustration/",
-        "Associate of Applied Science in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/associate-of-applied-science-in-fashion-design/",
-        "Bachelor of Fine Arts in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/bachelor-of-fine-arts-in-fashion-design/",
-        "One-Year Vocational Program in Fashion Design" : "https://www.istitutomarangonimiami.com/vocational-programs/one-year-vocational-program-in-fashion-design/",
+    "3": { // Question 4: How much time are you willing to dedicate to your education?
+        "0": [
+            { name: "My Atelier Experience", link: "https://example.com/atelier-experience" },
+            { name: "My Portfolio Experience | Fashion Design and Illustration", link: "https://example.com/portfolio-design" },
+            { name: "My Portfolio Experience | Fashion Styling and Business", link: "https://example.com/portfolio-styling" },
+            { name: "Fashion Summer Camp", link: "https://example.com/fashion-summer-camp" },
+            { name: "One-Year Vocational Program in Fashion Design", link: "https://example.com/one-year-fashion-design" },
+            { name: "One-Year Vocational Program in Fashion Styling", link: "https://example.com/one-year-fashion-styling" },
+            { name: "One-Year Vocational Program in Fashion Business", link: "https://example.com/one-year-fashion-business" },
+            { name: "One-Year Vocational Program in Interior Design", link: "https://example.com/one-year-interior-design" }
+        ],
+        "1": [
+            { name: "Associate of Applied Science in Fashion Design", link: "https://example.com/aas-fashion-design" },
+            { name: "Associate of Applied Science in Fashion Styling", link: "https://example.com/aas-fashion-styling" },
+            { name: "Associate of Applied Science in Fashion Business", link: "https://example.com/aas-fashion-business" },
+            { name: "Associate of Applied Science in Kitchen and Bath Design", link: "https://example.com/aas-kitchen-bath" },
+            { name: "One-Year Vocational Program in Fashion Design", link: "https://example.com/one-year-fashion-design" },
+            { name: "One-Year Vocational Program in Fashion Styling", link: "https://example.com/one-year-fashion-styling" },
+            { name: "One-Year Vocational Program in Fashion Business", link: "https://example.com/one-year-fashion-business" },
+            { name: "One-Year Vocational Program in Interior Design", link: "https://example.com/one-year-interior-design" }
+        ],
+        "2": [
+            { name: "Bachelor of Fine Arts in Fashion Design", link: "https://example.com/bfa-fashion-design" },
+            { name: "Bachelor of Fine Arts in Fashion Styling", link: "https://example.com/bfa-fashion-styling" },
+            { name: "Bachelor of Science in Fashion Business", link: "https://example.com/bs-fashion-business" },
+            { name: "Bachelor of Fine Arts in Interior Design", link: "https://example.com/bfa-interior-design" },
+            { name: "Master of Arts in Fashion Luxury and Brand Management", link: "https://example.com/ma-fashion-luxury" },
+            { name: "Master of Arts in Digital Communications and Social Media Strategy", link: "https://example.com/ma-digital-communications" },
+            { name: "Master of Arts in Fashion Design", link: "https://example.com/ma-fashion-design" },
+            { name: "Master of Fine Arts in Interior Design", link: "https://example.com/mfa-interior-design" }
+        ]
     },
-    "01101": {
-        "My Atelier Experience" : "https://www.istitutomarangonimiami.com/pre-college-courses/my-atelier-experience/",
-        "My Portfolio Experience | Fashion Design and Illustration" : "https://www.istitutomarangonimiami.com/pre-college-courses/my-portfolio-experience-fashion-illustration/",
-        "Associate of Applied Science in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/associate-of-applied-science-in-fashion-design/",
-        "Bachelor of Fine Arts in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/bachelor-of-fine-arts-in-fashion-design/",
-        "One-Year Vocational Program in Fashion Design" : "https://www.istitutomarangonimiami.com/vocational-programs/one-year-vocational-program-in-fashion-design/",
-    },
-    "01111": {
-        "My Atelier Experience" : "https://www.istitutomarangonimiami.com/pre-college-courses/my-atelier-experience/",
-        "My Portfolio Experience | Fashion Design and Illustration" : "https://www.istitutomarangonimiami.com/pre-college-courses/my-portfolio-experience-fashion-illustration/",
-        "Associate of Applied Science in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/associate-of-applied-science-in-fashion-design/",
-        "Bachelor of Fine Arts in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/bachelor-of-fine-arts-in-fashion-design/",
-        "One-Year Vocational Program in Fashion Design" : "https://www.istitutomarangonimiami.com/vocational-programs/one-year-vocational-program-in-fashion-design/",
-    },
-
-    "02200": {
-        "My Atelier Experience" : "https://www.istitutomarangonimiami.com/pre-college-courses/my-atelier-experience/",
-        "My Portfolio Experience | Fashion Design and Illustration" : "https://www.istitutomarangonimiami.com/pre-college-courses/my-portfolio-experience-fashion-illustration/",
-        "Associate of Applied Science in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/associate-of-applied-science-in-fashion-design/",
-        "Bachelor of Fine Arts in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/bachelor-of-fine-arts-in-fashion-design/",
-        "One-Year Vocational Program in Fashion Design" : "https://www.istitutomarangonimiami.com/vocational-programs/one-year-vocational-program-in-fashion-design/",
-    },
-    "02201": {
-        "My Atelier Experience" : "https://www.istitutomarangonimiami.com/pre-college-courses/my-atelier-experience/",
-        "My Portfolio Experience | Fashion Design and Illustration" : "https://www.istitutomarangonimiami.com/pre-college-courses/my-portfolio-experience-fashion-illustration/",
-        "Associate of Applied Science in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/associate-of-applied-science-in-fashion-design/",
-        "Bachelor of Fine Arts in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/bachelor-of-fine-arts-in-fashion-design/",
-        "One-Year Vocational Program in Fashion Design" : "https://www.istitutomarangonimiami.com/vocational-programs/one-year-vocational-program-in-fashion-design/",
-    },
-    "02211": {
-        "My Atelier Experience" : "https://www.istitutomarangonimiami.com/pre-college-courses/my-atelier-experience/",
-        "My Portfolio Experience | Fashion Design and Illustration" : "https://www.istitutomarangonimiami.com/pre-college-courses/my-portfolio-experience-fashion-illustration/",
-        "Associate of Applied Science in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/associate-of-applied-science-in-fashion-design/",
-        "Bachelor of Fine Arts in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/bachelor-of-fine-arts-in-fashion-design/",
-        "One-Year Vocational Program in Fashion Design" : "https://www.istitutomarangonimiami.com/vocational-programs/one-year-vocational-program-in-fashion-design/",
-    },
-
-    "03300": {
-        "My Atelier Experience" : "https://www.istitutomarangonimiami.com/pre-college-courses/my-atelier-experience/",
-        "My Portfolio Experience" : "#",
-        "Associate of Applied Science in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/associate-of-applied-science-in-fashion-design/",
-        "Bachelor of Fine Arts in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/bachelor-of-fine-arts-in-fashion-design/",
-        "One-Year Vocational Program in Fashion Design" : "https://www.istitutomarangonimiami.com/vocational-programs/one-year-vocational-program-in-fashion-design/",
-    },
-    "03301": {
-        "My Atelier Experience" : "https://www.istitutomarangonimiami.com/pre-college-courses/my-atelier-experience/",
-        "My Portfolio Experience" : "#",
-        "Associate of Applied Science in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/associate-of-applied-science-in-fashion-design/",
-        "Bachelor of Fine Arts in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/bachelor-of-fine-arts-in-fashion-design/",
-        "One-Year Vocational Program in Fashion Design" : "https://www.istitutomarangonimiami.com/vocational-programs/one-year-vocational-program-in-fashion-design/",
-    },
-    "03311": {
-        "My Atelier Experience" : "https://www.istitutomarangonimiami.com/pre-college-courses/my-atelier-experience/",
-        "My Portfolio Experience" : "#",
-        "Associate of Applied Science in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/associate-of-applied-science-in-fashion-design/",
-        "Bachelor of Fine Arts in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/bachelor-of-fine-arts-in-fashion-design/",
-        "One-Year Vocational Program in Fashion Design" : "https://www.istitutomarangonimiami.com/vocational-programs/one-year-vocational-program-in-fashion-design/",
-    },
-
-    "10000": {
-        "One-Year Vocational Program in Fashion Design" : "https://www.istitutomarangonimiami.com/vocational-programs/one-year-vocational-program-in-fashion-design/",
-    },
-    "10001": {
-        "One-Year Vocational Program in Fashion Design" : "https://www.istitutomarangonimiami.com/vocational-programs/one-year-vocational-program-in-fashion-design/",
-    },
-    "10011": {
-        "One-Year Vocational Program in Fashion Design" : "https://www.istitutomarangonimiami.com/vocational-programs/one-year-vocational-program-in-fashion-design/",
-    },
-
-    "11100": {
-        "One-Year Vocational Program in Fashion Design" : "https://www.istitutomarangonimiami.com/vocational-programs/one-year-vocational-program-in-fashion-design/",
-    },
-    "11101": {
-        "One-Year Vocational Program in Fashion Design" : "https://www.istitutomarangonimiami.com/vocational-programs/one-year-vocational-program-in-fashion-design/",
-    },
-    "11111": {
-        "One-Year Vocational Program in Fashion Design" : "https://www.istitutomarangonimiami.com/vocational-programs/one-year-vocational-program-in-fashion-design/",
-    },
-
-    "12200": {
-        "One-Year Vocational Program in Fashion Design" : "https://www.istitutomarangonimiami.com/vocational-programs/one-year-vocational-program-in-fashion-design/",
-    },
-    "12201": {
-        "One-Year Vocational Program in Fashion Design" : "https://www.istitutomarangonimiami.com/vocational-programs/one-year-vocational-program-in-fashion-design/",
-    },
-    "12211": {
-        "One-Year Vocational Program in Fashion Design" : "https://www.istitutomarangonimiami.com/vocational-programs/one-year-vocational-program-in-fashion-design/",
-    },
-
-    "13300": {
-        "One-Year Vocational Program in Fashion Design" : "https://www.istitutomarangonimiami.com/vocational-programs/one-year-vocational-program-in-fashion-design/",
-    },
-    "13301": {
-        "One-Year Vocational Program in Fashion Design" : "https://www.istitutomarangonimiami.com/vocational-programs/one-year-vocational-program-in-fashion-design/",
-    },
-    "13311": {
-        "One-Year Vocational Program in Fashion Design" : "https://www.istitutomarangonimiami.com/vocational-programs/one-year-vocational-program-in-fashion-design/",
-    },
-
-    "20022": {
-        "Bachelor of Fine Arts in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/bachelor-of-fine-arts-in-fashion-design/",
-        "Associate of Applied Science in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/associate-of-applied-science-in-fashion-design/",
-    },
-    "21122": {
-        "Bachelor of Fine Arts in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/bachelor-of-fine-arts-in-fashion-design/",
-        "Associate of Applied Science in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/associate-of-applied-science-in-fashion-design/",
-    },
-    "22222": {
-        "Bachelor of Fine Arts in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/bachelor-of-fine-arts-in-fashion-design/",
-        "Associate of Applied Science in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/associate-of-applied-science-in-fashion-design/",
-        "Master of Arts in Fashion Luxury and Brand Management" : "https://www.istitutomarangonimiami.com/graduate-programs/master-of-arts-in-fashion-luxury-and-brand-management/",
-    },
-    "23322": {
-        "Bachelor of Fine Arts in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/bachelor-of-fine-arts-in-fashion-design/",
-        "Associate of Applied Science in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/associate-of-applied-science-in-fashion-design/",
-        "One-Year Vocational Program in Interior Design" : "https://www.istitutomarangonimiami.com/vocational-programs/one-year-vocational-program-in-interior-design/",
-    },
-
-    "30022": {
-        "Bachelor of Fine Arts in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/bachelor-of-fine-arts-in-fashion-design/",
-    },
-    "31122": {
-        "Bachelor of Fine Arts in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/bachelor-of-fine-arts-in-fashion-design/",
-    },
-    "32222": {
-        "Bachelor of Fine Arts in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/bachelor-of-fine-arts-in-fashion-design/",
-    },
-    "33322": {
-        "Bachelor of Fine Arts in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/bachelor-of-fine-arts-in-fashion-design/",
-    },
-
-    "40023": {
-        "Bachelor of Fine Arts in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/bachelor-of-fine-arts-in-fashion-design/",
-        "Master of Arts in Fashion Design" : "https://www.istitutomarangonimiami.com/graduate-programs/master-of-arts-in-fashion-design/",
-    },
-    "41123": {
-        "Bachelor of Fine Arts in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/bachelor-of-fine-arts-in-fashion-design/",
-    },
-    "42223": {
-        "Bachelor of Fine Arts in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/bachelor-of-fine-arts-in-fashion-design/",
-    },
-    "43323": {
-        "Bachelor of Fine Arts in Fashion Design" : "https://www.istitutomarangonimiami.com/undergraduate-programs/bachelor-of-fine-arts-in-fashion-design/",
-        "Master of Arts in Fashion Design" : "https://www.istitutomarangonimiami.com/graduate-programs/master-of-arts-in-fashion-design/",
-    },
-
+    "4": { // Question 5: Which learning experience interests you the most?
+        "0": [
+            { name: "Fashion Summer Camp", link: "https://example.com/fashion-summer-camp" },
+            { name: "My Portfolio Experience | Fashion Design and Illustration", link: "https://example.com/portfolio-design" },
+            { name: "My Portfolio Experience | Fashion Styling and Business", link: "https://example.com/portfolio-styling" },
+            { name: "My Atelier Experience", link: "https://example.com/atelier-experience" }
+        ],
+        "1": [
+            { name: "One-Year Vocational Program in Fashion Design", link: "https://example.com/one-year-fashion-design" },
+            { name: "One-Year Vocational Program in Fashion Styling", link: "https://example.com/one-year-fashion-styling" },
+            { name: "One-Year Vocational Program in Fashion Business", link: "https://example.com/one-year-fashion-business" },
+            { name: "One-Year Vocational Program in Interior Design", link: "https://example.com/one-year-interior-design" }
+        ],
+        "2": [
+            { name: "Associate of Applied Science in Fashion Design", link: "https://example.com/aas-fashion-design" },
+            { name: "Associate of Applied Science in Fashion Styling", link: "https://example.com/aas-fashion-styling" },
+            { name: "Associate of Applied Science in Fashion Business", link: "https://example.com/aas-fashion-business" },
+            { name: "Associate of Applied Science in Kitchen and Bath Design", link: "https://example.com/aas-kitchen-bath" },
+            { name: "Bachelor of Fine Arts in Fashion Design", link: "https://example.com/bfa-fashion-design" },
+            { name: "Bachelor of Fine Arts in Fashion Styling", link: "https://example.com/bfa-fashion-styling" },
+            { name: "Bachelor of Science in Fashion Business", link: "https://example.com/bs-fashion-business" },
+            { name: "Bachelor of Fine Arts in Interior Design", link: "https://example.com/bfa-interior-design" }
+        ],
+        "3": [
+            { name: "Master of Arts in Fashion Luxury and Brand Management", link: "https://example.com/ma-fashion-luxury" },
+            { name: "Master of Arts in Digital Communications and Social Media Strategy", link: "https://example.com/ma-digital-communications" },
+            { name: "Master of Arts in Fashion Design", link: "https://example.com/ma-fashion-design" },
+            { name: "Master of Fine Arts in Interior Design", link: "https://example.com/mfa-interior-design" }
+        ]
+    }
 };
 
+function getIntersectingPrograms() {
+    let intersectingPrograms = null;
 
+    savedData.forEach(data => {
+        const questionIndex = data.questionIndex;
+        const answers = data.answers;
+        let currentPrograms = [];
 
-function getProgramsByResponses(responses) {
-    const key = responses.join("");
+        answers.forEach(answer => {
+            const answerIndex = Object.keys(answer.text)[0];
+            const relatedPrograms = programsMapping[questionIndex]?.[answerIndex];
 
-    window.programs = programsByResponses[key] || "No matching programs found";
-    return programsByResponses[key] || "No matching programs found";
-}
-
-
-function getAnswersForPrograms() {
-    const answersData = savedData;
-    let extractedKeys = [];
-
-    answersData.forEach(item => {
-        item.answers.forEach(answer => {
-            if (answer.text && Object.keys(answer.text).length > 0) {
-                const keys = Object.keys(answer.text);
-                extractedKeys = extractedKeys.concat(keys.map(key => Number(key)));
+            if (relatedPrograms) {
+                currentPrograms = [...new Set([...currentPrograms, ...relatedPrograms])];
             }
         });
+
+        if (intersectingPrograms === null) {
+            intersectingPrograms = currentPrograms;
+        } else {
+            intersectingPrograms = intersectingPrograms.filter(program =>
+                currentPrograms.some(p => p.name === program.name)
+            );
+        }
     });
 
-    if (extractedKeys.length === 0) {
-        extractedKeys = [4, 0, 0, 2, 3];
-    }
-
-    //console.log("Final extracted keys:", extractedKeys);
-    return getProgramsByResponses(extractedKeys);
+    return intersectingPrograms || [];
 }
 
-
 function displayProgramsList() {
+    const programs = getIntersectingPrograms();
+
     const programsListContainer = document.getElementById('programs-list-container');
     programsListContainer.innerHTML = '';
 
-    const programsList = getAnswersForPrograms();
-    //console.log("Programs List:", programsList);
-
-    if (typeof programsList === 'object' && !Array.isArray(programsList)) {
-        const programsArray = Object.entries(programsList);
-        //console.log("Programs Array:", programsArray);
-
-        if (programsArray.length > 0) {
-            const ul = document.createElement('ul');
-
-            programsArray.forEach(([programName, programUrl]) => {
-                const li = document.createElement('li');
-                const a = document.createElement('a');
-                a.textContent = programName;
-                a.href = programUrl || '#';
-                a.target = '_blank';
-
-                li.appendChild(a);
-                ul.appendChild(li);
-            });
-
-            programsListContainer.appendChild(ul);
-        } else {
-            programsListContainer.innerHTML = 'No matching programs found.';
-        }
+    if (programs.length > 0) {
+        const ul = document.createElement('ul');
+        programs.forEach(program => {
+            const li = document.createElement('li');
+            const a = document.createElement('a');
+            a.textContent = program.name;
+            a.href = program.link;
+            a.target = "_blank";
+            li.appendChild(a);
+            ul.appendChild(li);
+        });
+        programsListContainer.appendChild(ul);
     } else {
-        programsListContainer.innerHTML = 'Invalid data format.';
+        programsListContainer.textContent = 'No matching programs found.';
     }
 }
 
